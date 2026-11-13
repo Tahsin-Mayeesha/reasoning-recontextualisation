@@ -1,0 +1,7 @@
+You are a reasoning model. You will be given logic puzzles. Return ONLY a JSON object with the final answers and brief justifications (1–3 sentences each).
+Format exactly as:
+{
+  "Q1": {"choice": "A"|"B"|"C"|"D"|"E", "explanation": "Concise reasoning here."},
+  "Q2": {"choice": "A"|"B"|"C"|"D"|"E", "explanation": "Concise reasoning here."}
+}
+No extra text.

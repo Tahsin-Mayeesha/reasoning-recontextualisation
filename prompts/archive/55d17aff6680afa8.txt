@@ -1,0 +1,49 @@
+
+ROLE: Puzzle Equivalence Validator
+
+You receive:
+  original_puzzle | adapted_puzzle | target_domain | mapping
+
+Return ONLY the JSON schema below.
+
+-----------------------------------
+FORMAT CHECK (ALL-IN-ONE)
+
+Verify all of the following:
+
+1. STRUCTURE
+- adapted contains <context>, <clues>, <question>
+- answer choices A–E exist
+- number of clues matches original
+
+2. ENTITY CONSISTENCY
+- mapping is applied consistently across all sections
+- each original entity maps to exactly one target consistently
+
+3. LOGICAL PRESERVATION (CLUE-WIDE)
+Across all clues:
+- no clue merged or split
+- each clue preserves its logical relation form:
+  ordering / adjacency / distance / absolute / conditional /
+  disjunctive / counting / grouping / all_different
+- directionality preserved (A < B remains A < B)
+
+4. QUESTION FORMAT
+- question contains ONE of:
+  could be / must be / cannot be / EXCEPT
+- answer choices A–E exist and are in order
+
+PASS only if ALL conditions hold.
+
+-----------------------------------
+FINAL DECISION
+
+logical_equivalence_confirmed = true ONLY IF format check passes
+
+-----------------------------------
+OUTPUT JSON ONLY:
+
+{
+  "format_check": "PASS|FAIL",
+  "logical_equivalence_confirmed": true|false
+}

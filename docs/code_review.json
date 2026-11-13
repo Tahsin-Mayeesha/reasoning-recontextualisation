@@ -1,0 +1,2354 @@
+[
+  {
+    "source": "code/adaptation.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "_gen_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_MODELS",
+        "value": [
+          "deepseek-r1:14b-qwen-distill-q4_K_M",
+          "deepseek-r1:7b-qwen-distill-q4_K_M",
+          "qwen3:14b",
+          "qwen3:5b",
+          "qwen3:8b"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": false
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 4000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "source": "code/adaptation_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "_gen_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_MODELS",
+        "value": [
+          "deepseek-r1:14b-qwen-distill-q4_K_M",
+          "deepseek-r1:7b-qwen-distill-q4_K_M",
+          "qwen3:14b",
+          "qwen3:5b",
+          "qwen3:8b"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": false
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 4000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "source": "code/benchmark_results_analysis (1).ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/benchmark_results_analysis(adapted-v1).ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/benchmark_results_analysis.ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/claude_cloud_v1.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "claude-haiku-4-5"
+      },
+      {
+        "cell": 8,
+        "name": "THINKING_MODELS",
+        "value": [
+          "claude-opus-4-5",
+          "claude-opus-4-6",
+          "claude-sonnet-4-5",
+          "claude-sonnet-4-6"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_BUDGET",
+        "value": 5000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/claude_cloud_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "claude-haiku-4-5"
+      },
+      {
+        "cell": 8,
+        "name": "THINKING_MODELS",
+        "value": [
+          "claude-opus-4-5",
+          "claude-opus-4-6",
+          "claude-sonnet-4-5",
+          "claude-sonnet-4-6"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_BUDGET",
+        "value": 5000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting.ipynb",
+    "definitions": [
+      "extract_letter_from_format",
+      "final_answer",
+      "extract_reasoning",
+      "extract_answer",
+      "system_prompt_for",
+      "extract_letter_from_format",
+      "final_answer",
+      "extract_letter_from_format",
+      "final_answer"
+    ],
+    "static_settings": [
+      {
+        "cell": 38,
+        "name": "MODELS",
+        "value": [
+          "o3",
+          "o3-mini",
+          "o4-mini",
+          "gpt-4o",
+          "gpt-4o-mini"
+        ]
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_ClaudeHaiku.ipynb",
+    "definitions": [
+      "extract_reasoning_and_answer",
+      "save_results",
+      "load_completed",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "claude-haiku-4-5-20251001"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_TOKENS_ZS",
+        "value": 256
+      },
+      {
+        "cell": 6,
+        "name": "MAX_TOKENS_COT",
+        "value": 1024
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_Gemini25Flash (1).ipynb",
+    "definitions": [
+      "extract_answer",
+      "save_results",
+      "load_completed",
+      "generate",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 8,
+        "name": "MAX_OUTPUT_ZS",
+        "value": 256
+      },
+      {
+        "cell": 8,
+        "name": "MAX_OUTPUT_COT",
+        "value": 5000
+      },
+      {
+        "cell": 8,
+        "name": "THINKING_BUDGET_ZS",
+        "value": 0
+      },
+      {
+        "cell": 8,
+        "name": "THINKING_BUDGET_COT",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_Gemini25Flash.ipynb",
+    "definitions": [
+      "extract_answer",
+      "save_results",
+      "load_completed",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash-preview-05-20"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_ZS",
+        "value": 256
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_COT",
+        "value": 8192
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET_ZS",
+        "value": 0
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET_COT",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_Ollama.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "out_path",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODELS",
+        "value": [
+          "llama3.1:8b"
+        ]
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_ZS",
+        "value": 64
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_COT",
+        "value": 512
+      },
+      {
+        "cell": 6,
+        "name": "TEMPERATURE",
+        "value": 0.0
+      },
+      {
+        "cell": 18,
+        "name": "model_tag",
+        "value": "qwen3.5:9b"
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_Olmo.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "out_path",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODELS",
+        "value": [
+          "llama3.1:8b"
+        ]
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_ZS",
+        "value": 64
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_COT",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "TEMPERATURE",
+        "value": 0.0
+      },
+      {
+        "cell": 18,
+        "name": "model_tag",
+        "value": "qwen3.5:9b"
+      }
+    ]
+  },
+  {
+    "source": "code/CoT_prompting_Qwen.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "out_path",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 7,
+        "name": "MODELS",
+        "value": [
+          "qwen3.5:9b"
+        ]
+      },
+      {
+        "cell": 7,
+        "name": "NUM_PREDICT_ZS",
+        "value": 2048
+      },
+      {
+        "cell": 7,
+        "name": "NUM_PREDICT_COT",
+        "value": 2048
+      },
+      {
+        "cell": 7,
+        "name": "TEMPERATURE",
+        "value": 0.0
+      },
+      {
+        "cell": 19,
+        "name": "model_tag",
+        "value": "qwen3.5:9b"
+      }
+    ]
+  },
+  {
+    "source": "code/deepseek-run.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 5,
+        "name": "COT_MODEL",
+        "value": "/kaggle/input/models/deepseek-ai/deepseek-r1/transformers/deepseek-r1-distill-qwen-7b/2"
+      },
+      {
+        "cell": 5,
+        "name": "MAX_NEW_TOKENS_ZS",
+        "value": 64
+      },
+      {
+        "cell": 5,
+        "name": "MAX_NEW_TOKENS_COT",
+        "value": 512
+      }
+    ]
+  },
+  {
+    "source": "code/deepseek_kaggle_v1.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_local_judge",
+      "call_local_generator",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "deepseek-r1-distill-qwen-7b"
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_NEW_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 18,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/deepseek_kaggle_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_local_judge",
+      "call_local_generator",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "deepseek-r1-distill-qwen-7b"
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_NEW_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 18,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/gemini_cloud_v1.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "gemini-2.5-flash-preview-05-20"
+      },
+      {
+        "cell": 8,
+        "name": "REASONING_MODELS",
+        "value": [
+          "gemini-2.5-flash-preview-05-20",
+          "gemini-2.5-pro-preview-05-06"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/gemini_cloud_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "gemini-2.5-flash-preview-05-20"
+      },
+      {
+        "cell": 8,
+        "name": "REASONING_MODELS",
+        "value": [
+          "gemini-2.5-flash-preview-05-20",
+          "gemini-2.5-pro-preview-05-06"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/jaccard_successful_only_cleaned.ipynb",
+    "definitions": [
+      "preprocess_puzzle",
+      "tok_basic",
+      "tok_normalized",
+      "jac",
+      "text_jac",
+      "tok_content",
+      "bootstrap_mean_ci"
+    ],
+    "static_settings": [
+      {
+        "cell": 2,
+        "name": "SEED",
+        "value": 42
+      }
+    ]
+  },
+  {
+    "source": "code/judge_audit_gemini.ipynb",
+    "definitions": [
+      "save_results",
+      "load_completed",
+      "generate",
+      "parse_audit_response"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash-preview-05-20"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/llama-run.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "_gen_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "llama3.1:8b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_MODELS",
+        "value": [
+          "deepseek-r1:14b-qwen-distill-q4_K_M",
+          "deepseek-r1:7b-qwen-distill-q4_K_M",
+          "qwen3:14b",
+          "qwen3:5b",
+          "qwen3:8b"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": false
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 4000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 2
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "source": "code/ollama_test.ipynb",
+    "definitions": [],
+    "static_settings": []
+  },
+  {
+    "source": "code/openai_cot_prompting.ipynb",
+    "definitions": [
+      "extract_letter_from_format",
+      "final_answer",
+      "extract_reasoning",
+      "extract_answer",
+      "system_prompt_for",
+      "extract_letter_from_format",
+      "final_answer",
+      "extract_letter_from_format",
+      "final_answer"
+    ],
+    "static_settings": [
+      {
+        "cell": 37,
+        "name": "MODELS",
+        "value": [
+          "o3",
+          "o3-mini",
+          "o4-mini",
+          "gpt-4o",
+          "gpt-4o-mini"
+        ]
+      }
+    ]
+  },
+  {
+    "source": "code/qwen-benchmark.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "out_path",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODELS",
+        "value": [
+          "qwen3.5:9b"
+        ]
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_ZS",
+        "value": 2048
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_COT",
+        "value": 2048
+      },
+      {
+        "cell": 6,
+        "name": "TEMPERATURE",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_adaptation_judge_local_model.ipynb",
+    "definitions": [
+      "map_difficulty",
+      "call_local",
+      "call_model",
+      "call_local_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "save_checkpoint",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async"
+    ],
+    "static_settings": [
+      {
+        "cell": 1,
+        "name": "GENERATOR_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 1,
+        "name": "GENERATOR_BACKEND",
+        "value": "local"
+      },
+      {
+        "cell": 1,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:27b"
+      },
+      {
+        "cell": 1,
+        "name": "JUDGE_BACKEND",
+        "value": "local"
+      },
+      {
+        "cell": 1,
+        "name": "MAX_ITER",
+        "value": 5
+      },
+      {
+        "cell": 4,
+        "name": "seed",
+        "value": 42
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_benchmark.ipynb",
+    "definitions": [
+      "extract_think_and_answer",
+      "save_results",
+      "load_completed",
+      "out_path",
+      "generate"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODELS",
+        "value": [
+          "qwen3.5:9b"
+        ]
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_ZS",
+        "value": 2048
+      },
+      {
+        "cell": 6,
+        "name": "NUM_PREDICT_COT",
+        "value": 2048
+      },
+      {
+        "cell": 6,
+        "name": "TEMPERATURE",
+        "value": 0.0
+      }
+    ]
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 5,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 5,
+        "name": "GENERATOR_MODEL",
+        "value": "gpt-4o"
+      },
+      {
+        "cell": 5,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 5,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 5,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 5,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 4096
+      },
+      {
+        "cell": 5,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 5,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 5,
+        "name": "MAX_RETRY",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "gpt-4o"
+      },
+      {
+        "cell": 8,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 4096
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v3.ipynb",
+    "definitions": [
+      "run_ollama_serve",
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 14,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 14,
+        "name": "GENERATOR_MODEL",
+        "value": "gpt-4o"
+      },
+      {
+        "cell": 14,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 14,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 14,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 14,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 14,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 14,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 14,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 26,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v4 (1).ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "o3"
+      },
+      {
+        "cell": 8,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v4.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "o3"
+      },
+      {
+        "cell": 8,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_judge_adaptation_cloud.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_cloud_generator",
+      "call_local_judge",
+      "call_cloud_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 2,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 2,
+        "name": "GENERATOR_MODEL",
+        "value": "gpt-4o"
+      },
+      {
+        "cell": 2,
+        "name": "REASONING_MODELS",
+        "value": [
+          "o1",
+          "o3"
+        ]
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 2,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_THINKING",
+        "value": false
+      },
+      {
+        "cell": 2,
+        "name": "MAX_ITER",
+        "value": 1
+      },
+      {
+        "cell": 2,
+        "name": "MAX_RETRY",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_local_fix.ipynb",
+    "definitions": [
+      "_gen_extra_body",
+      "_judge_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 2,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 2,
+        "name": "GENERATOR_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 2,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 4096
+      },
+      {
+        "cell": 2,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 2,
+        "name": "MAX_ITER",
+        "value": 5
+      },
+      {
+        "cell": 2,
+        "name": "MAX_RETRY",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_local_fixed.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "qwen3:5b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 2048
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 4096
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_local_thinking_v1.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "_gen_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "llama3.1:8b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_MODELS",
+        "value": [
+          "deepseek-r1:14b-qwen-distill-q4_K_M",
+          "deepseek-r1:7b-qwen-distill-q4_K_M",
+          "qwen3:14b",
+          "qwen3:5b",
+          "qwen3:8b"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": false
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "source": "code/qwen_local_thinking_v2.ipynb",
+    "definitions": [
+      "_judge_extra_body",
+      "_gen_extra_body",
+      "call_local_generator",
+      "call_local_judge",
+      "call_local_generator_async",
+      "call_local_judge_async",
+      "parse_judge_output",
+      "call_and_parse_judge",
+      "call_and_parse_judge_async",
+      "extract_block",
+      "parse_gen_output",
+      "build_generation_prompt",
+      "build_judgment_prompt",
+      "build_refinement_prompt",
+      "run_pipeline_sync",
+      "process_row_async",
+      "run_pipeline_async",
+      "summarise_run",
+      "compare_all_runs",
+      "inspect_think_traces"
+    ],
+    "static_settings": [
+      {
+        "cell": 8,
+        "name": "JUDGE_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MODEL",
+        "value": "llama3.1:8b"
+      },
+      {
+        "cell": 8,
+        "name": "GEN_BACKEND",
+        "value": "ollama"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING_MODELS",
+        "value": [
+          "deepseek-r1:14b-qwen-distill-q4_K_M",
+          "deepseek-r1:7b-qwen-distill-q4_K_M",
+          "qwen3:14b",
+          "qwen3:5b",
+          "qwen3:8b"
+        ]
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_THINKING",
+        "value": false
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MODEL",
+        "value": "qwen3.5:9b"
+      },
+      {
+        "cell": 8,
+        "name": "GENERATOR_MAX_TOKENS",
+        "value": 3000
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_MAX_TOKENS",
+        "value": 8192
+      },
+      {
+        "cell": 8,
+        "name": "JUDGE_THINKING",
+        "value": true
+      },
+      {
+        "cell": 8,
+        "name": "MAX_ITER",
+        "value": 3
+      },
+      {
+        "cell": 8,
+        "name": "MAX_RETRY",
+        "value": 3
+      },
+      {
+        "cell": 20,
+        "name": "JUDGE_PARSE_RETRIES",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "source": "code/results_analysis.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/results_analysis_adaptation.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/results_analysis_adaptation1.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/results_analysis_v2.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/semantic_parser_audit (1).ipynb",
+    "definitions": [
+      "map_difficulty",
+      "load_completed",
+      "generate_audit",
+      "parse_answer",
+      "needs_audit",
+      "run_audit_for_model"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash-preview-05-20"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 256
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/semantic_parser_audit.ipynb",
+    "definitions": [
+      "map_difficulty",
+      "load_completed",
+      "generate_audit",
+      "parse_answer",
+      "needs_audit",
+      "run_audit_for_model"
+    ],
+    "static_settings": [
+      {
+        "cell": 11,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 11,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 256
+      },
+      {
+        "cell": 11,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/analytica_error_analysis.ipynb",
+    "definitions": [
+      "normalise",
+      "stratified_sample",
+      "build_summary_prompt",
+      "get_summary",
+      "format_for_taxonomy"
+    ],
+    "static_settings": [
+      {
+        "cell": 3,
+        "name": "RANDOM_SEED",
+        "value": 42
+      },
+      {
+        "cell": 3,
+        "name": "SUMMARY_MODEL",
+        "value": "claude-opus-4-5"
+      },
+      {
+        "cell": 3,
+        "name": "TAXONOMY_MODEL",
+        "value": "claude-opus-4-5"
+      }
+    ]
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2) + comparison.ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2).ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(original_v2).ipynb",
+    "definitions": [
+      "map_difficulty",
+      "model_metrics",
+      "cochrans_q"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/constraint_adaptation_analysis.ipynb",
+    "definitions": [
+      "map_difficulty",
+      "parse_constraint_types"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/generator_solver_investigation.ipynb",
+    "definitions": [
+      "map_difficulty"
+    ],
+    "static_settings": []
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_adaptation1.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_v2.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_visualizations.ipynb",
+    "definitions": [
+      "summarise_run",
+      "build_comparison",
+      "inspect_think_traces",
+      "save_results",
+      "load_completed",
+      "generate_audit",
+      "parse_audit_response",
+      "derive_corrected_outcome",
+      "summarise_run_combined",
+      "build_comparison_combined",
+      "map_difficulty",
+      "build_comparison"
+    ],
+    "static_settings": [
+      {
+        "cell": 6,
+        "name": "MODEL_ID",
+        "value": "gemini-2.5-flash"
+      },
+      {
+        "cell": 6,
+        "name": "MAX_OUTPUT_TOKENS",
+        "value": 1024
+      },
+      {
+        "cell": 6,
+        "name": "THINKING_BUDGET",
+        "value": 0
+      }
+    ]
+  }
+]

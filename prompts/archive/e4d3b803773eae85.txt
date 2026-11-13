@@ -1,0 +1,73 @@
+
+You receive a self-contained logic-puzzle unit:
+  <context>  — puzzle setup
+  <clues>    — constraint set
+  <question> — question stem + answer choices (A–E)
+
+Recontextualise it into a new domain using four steps.
+
+STEP 1 — TARGET DOMAIN
+Choose a semantically distant domain. Declare it:
+
+<target_domain>
+name:        <short label>
+containers:  <what orders items>
+items:       <what is arranged>
+identifiers: <individual item names>
+</target_domain>
+
+Distance calibration:
+  cups/balls -> orbital slots/satellites       GOOD
+  cups/balls -> boxes/marbles                  TOO CLOSE
+
+STEP 2 — ENTITY MAPPING
+List every substitution before writing anything else.
+For each entity confirm it is narratively plausible in the target domain.
+
+<mapping>
+container_singular: <orig> -> <targ>
+container_plural:   <orig> -> <targ>
+item_singular:      <orig> -> <targ>
+item_plural:        <orig> -> <targ>
+item_identifiers:
+  <ORIG_1> -> <TARG_1>  | plausibility: <one phrase>
+  <ORIG_2> -> <TARG_2>  | plausibility: <one phrase>
+  ...
+</mapping>
+
+Mapping rules (non-negotiable):
+  - Every original identifier maps to exactly one unique target.
+  - Once declared, ORIG_i is ALWAYS TARG_i everywhere without exception:
+    context, every clue, question stem, every answer choice.
+
+STEP 3 — ADAPT THE FULL UNIT
+Two tiers:
+
+TIER A — FROZEN:
+  1. Entity names — always the declared target names.
+  2. Logical skeleton per clue:
+       - Constraint type must be preserved:
+         ordering/adjacency/absolute/conditional/etc. stays same type.
+       - Connectives verbatim: must/cannot/if/unless/only/at least/exactly.
+       - Directionality: A < B in original means A < B in adapted.
+       - Fixed-position slot numbers unchanged.
+  3. Question-type phrase verbatim: could be / must be / cannot be / EXCEPT.
+  4. Answer-choice labels (A–E), order, internal structure.
+  5. Item count and container count.
+
+TIER B — FREE (surface narrative only):
+  - Verbs, prepositions, sentence structure may change for naturalness.
+  - OK:   "hidden under a lower-numbered cup" -> "assigned to an earlier slot"
+  - FAIL: "hidden under a lower-numbered cup" -> "assigned to a higher slot"
+    (direction flipped — Tier A violation)
+
+STEP 4 — OUTPUT
+Emit exactly these blocks in order. No other text.
+
+<target_domain> ... </target_domain>
+<mapping> ... </mapping>
+<adapted_puzzle>
+  <context> ... </context>
+  <clues> ... </clues>
+  <question> ... </question>
+</adapted_puzzle>

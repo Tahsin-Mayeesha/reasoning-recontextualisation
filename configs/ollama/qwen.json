@@ -1,0 +1,32 @@
+{
+  "generator": {
+    "provider": "ollama",
+    "model": "qwen3.5:9b",
+    "max_tokens": 4000,
+    "temperature": 0.2,
+    "think": false,
+    "num_ctx": 16384
+  },
+  "judge": {
+    "provider": "ollama",
+    "model": "qwen3.5:9b",
+    "temperature": 0.1,
+    "max_tokens": 8192,
+    "num_ctx": 16384,
+    "think": true
+  },
+  "max_iterations": 3,
+  "judge_parse_retries": 3,
+  "prompt_prefix": "ollama",
+  "solve": {
+    "zs": {
+      "max_tokens": 2048,
+      "temperature": 0.0
+    },
+    "cot": {
+      "max_tokens": 2048,
+      "temperature": 0.0,
+      "think": true
+    }
+  }
+}

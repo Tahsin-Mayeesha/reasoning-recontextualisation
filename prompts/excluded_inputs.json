@@ -1,0 +1,14 @@
+[
+  {
+    "source": "code/CoT_prompting.ipynb",
+    "cell": 37,
+    "variable": "PUZZLE_USER_PROMPT",
+    "reason": "Literal benchmark question input excluded from code-only publication."
+  },
+  {
+    "source": "code/openai_cot_prompting.ipynb",
+    "cell": 36,
+    "variable": "PUZZLE_USER_PROMPT",
+    "reason": "Literal benchmark question input excluded from code-only publication."
+  }
+]

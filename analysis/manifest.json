@@ -1,0 +1,212 @@
+[
+  {
+    "source": "Results_notebooks/benchmark_results_analysis(adapted_v2) + comparison.ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2_comparison_a0b38cfc.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/benchmark_results_analysis(adapted_v2).ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2__d5f47494.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/benchmark_results_analysis(original_v2).ipynb",
+    "copy": "benchmark_results_analysis_original_v2__ed9a4366.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/constraint_adaptation_analysis.ipynb",
+    "copy": "constraint_adaptation_analysis_b4816388.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/generator_solver_investigation.ipynb",
+    "copy": "generator_solver_investigation_c79472f2.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/results_analysis_adaptation1.ipynb",
+    "copy": "results_analysis_adaptation1_6d5ca71b.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/results_analysis_v2.ipynb",
+    "copy": "results_analysis_v2_95738b57.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/results_analysis_visualizations.ipynb",
+    "copy": "results_analysis_visualizations_37fe5320.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/error analysis/analytica_error_analysis.ipynb",
+    "copy": "analytica_error_analysis_1b591cf5.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/gemini_anomaly/benchmark_results_analysis(adapted_v2)_+_comparison.ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2_comparison_a0b38cfc.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "Results_notebooks/gemini_anomaly/CoT_prompting_Gemini25Flash (1).ipynb",
+    "copy": "CoT_prompting_Gemini25Flash_1__18836830.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/gemini_anomaly/gemini_300_original_vs_adapted.ipynb",
+    "copy": "gemini_300_original_vs_adapted_0b6a838e.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Results_notebooks/gemini_anomaly/semantic_parser_audit.ipynb",
+    "copy": "semantic_parser_audit_8fef4ce9.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/benchmark_results_analysis(adapted_v2)_+_comparison.ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2____comparison_2b9c3648.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/constraints.ipynb",
+    "copy": "constraints_6dca2670.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/constraint_adaptation_analysis.ipynb",
+    "copy": "constraint_adaptation_analysis_2c19b628.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/generator_solver_investigation.ipynb",
+    "copy": "generator_solver_investigation_79eb7353.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/genprm_adaptation_verifier_colab.ipynb",
+    "copy": "genprm_adaptation_verifier_colab_ced4827c.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/jaccard_successful_only_cleaned (1).ipynb",
+    "copy": "jaccard_successful_only_cleaned_1__175fd9c2.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/mink_prob_probe.ipynb",
+    "copy": "mink_prob_probe_714a51d5.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "Final_Draft/results_analysis_visualizations.ipynb",
+    "copy": "results_analysis_visualizations_37fe5320.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "Final_Draft/time_travel_probe.ipynb",
+    "copy": "time_travel_probe_da8fc9ca.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/benchmark_results_analysis (1).ipynb",
+    "copy": "benchmark_results_analysis_1__dff80382.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/benchmark_results_analysis(adapted-v1).ipynb",
+    "copy": "benchmark_results_analysis_adapted-v1__a5a0d505.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/benchmark_results_analysis.ipynb",
+    "copy": "benchmark_results_analysis_90441e51.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/jaccard_successful_only_cleaned.ipynb",
+    "copy": "jaccard_successful_only_cleaned_e23fad5b.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/judge_audit_gemini.ipynb",
+    "copy": "judge_audit_gemini_b389b4b3.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/results_analysis.ipynb",
+    "copy": "results_analysis_adaptation1_6d5ca71b.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/results_analysis_adaptation.ipynb",
+    "copy": "results_analysis_adaptation1_6d5ca71b.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/results_analysis_adaptation1.ipynb",
+    "copy": "results_analysis_adaptation1_6d5ca71b.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/results_analysis_v2.ipynb",
+    "copy": "results_analysis_v2_95738b57.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/semantic_parser_audit (1).ipynb",
+    "copy": "semantic_parser_audit_1__00b37a5b.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/semantic_parser_audit.ipynb",
+    "copy": "semantic_parser_audit_00831244.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/analytica_error_analysis.ipynb",
+    "copy": "analytica_error_analysis_1b591cf5.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2) + comparison.ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2____comparison_2b9c3648.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2).ipynb",
+    "copy": "benchmark_results_analysis_adapted_v2__d5f47494.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(original_v2).ipynb",
+    "copy": "benchmark_results_analysis_original_v2__7479f2f7.ipynb",
+    "duplicate": false
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/constraint_adaptation_analysis.ipynb",
+    "copy": "constraint_adaptation_analysis_2c19b628.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/generator_solver_investigation.ipynb",
+    "copy": "generator_solver_investigation_79eb7353.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_adaptation1.ipynb",
+    "copy": "results_analysis_adaptation1_6d5ca71b.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_v2.ipynb",
+    "copy": "results_analysis_v2_95738b57.ipynb",
+    "duplicate": true
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_visualizations.ipynb",
+    "copy": "results_analysis_visualizations_37fe5320.ipynb",
+    "duplicate": true
+  }
+]

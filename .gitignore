@@ -1,0 +1,23 @@
+# Private source material, model traces, and results must stay local.
+data/
+outputs/
+private/
+.env
+.env.*
+!.env.example
+*.csv
+*.xlsx
+*.xls
+*.jsonl
+*.pdf
+*.png
+*.jpg
+*.zip
+*.log
+*.manifest.json
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+build/
+dist/

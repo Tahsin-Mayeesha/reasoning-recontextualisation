@@ -1,0 +1,314 @@
+[
+  {
+    "source": "code/adaptation.ipynb",
+    "code_sha256": "74744a01248f3d3e09f4bf7fe754eb0f7a3b57ecb58dfc93851eef5aa64f6644",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/adaptation_v2.ipynb",
+    "code_sha256": "3cfaf2f779704a926126fe972bc5528f88be87feaa76741d18c9ac57899f7def",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/benchmark_results_analysis (1).ipynb",
+    "code_sha256": "dff8038275246b27632a97ecc17c5cd1eb6437a777992a27f0912b92f565dcdb",
+    "duplicate_of": null,
+    "code_cells": 7
+  },
+  {
+    "source": "code/benchmark_results_analysis(adapted-v1).ipynb",
+    "code_sha256": "a5a0d50550ca2e7d1aa26fd03fa9b81ce769b7604e4bee967b6c7fa29fcd6ad5",
+    "duplicate_of": null,
+    "code_cells": 8
+  },
+  {
+    "source": "code/benchmark_results_analysis.ipynb",
+    "code_sha256": "90441e51486dce1d9069c5647ba32820eaf3edd876f42f69009815cea7fdb46a",
+    "duplicate_of": null,
+    "code_cells": 8
+  },
+  {
+    "source": "code/claude_cloud_v1.ipynb",
+    "code_sha256": "a423cf77623c965ca4ac11f4c00cfff0b507b27114886b779d5e86410b9ddba1",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/claude_cloud_v2.ipynb",
+    "code_sha256": "4c25c9665ee7f38114c704354defa8d9366ace8b86c31c67ac7469f1bc338123",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/CoT_prompting.ipynb",
+    "code_sha256": "68490e047a3f75501684204693f18467d628b34f6b99bc6ab64eeee4604692ff",
+    "duplicate_of": null,
+    "code_cells": 50
+  },
+  {
+    "source": "code/CoT_prompting_ClaudeHaiku.ipynb",
+    "code_sha256": "033a406e17a831ecf651ed5a8f4f93c5a47abadff6bd3e0c4f23ec0cbccf515e",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/CoT_prompting_Gemini25Flash (1).ipynb",
+    "code_sha256": "188368302f50ea8ba66eacbd95ebdeccbd39d0cd2586d43c7913d1c23c8a4179",
+    "duplicate_of": null,
+    "code_cells": 18
+  },
+  {
+    "source": "code/CoT_prompting_Gemini25Flash.ipynb",
+    "code_sha256": "777c089bc4027669b4ab00889e671fbfb341aba288780c039d44ff6e7d4cf176",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/CoT_prompting_Ollama.ipynb",
+    "code_sha256": "14a78653785afd9d0bef91d5d4016064fa5fe3da755d463d6e5b228bf10f2b88",
+    "duplicate_of": null,
+    "code_cells": 11
+  },
+  {
+    "source": "code/CoT_prompting_Olmo.ipynb",
+    "code_sha256": "bd331d8fb54d993ede62d8eda8bdf843341bf615cee8e38eb157fa912fae5aea",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/CoT_prompting_Qwen.ipynb",
+    "code_sha256": "75f85a03fc310b2a1e6915a02efa44e587bf6853ec16f35f925aff68db8d945d",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/deepseek-run.ipynb",
+    "code_sha256": "fe7a22c99e9b189db80cf33a29763ebdd11d26dc54d85bc786186f9d957fc01e",
+    "duplicate_of": null,
+    "code_cells": 12
+  },
+  {
+    "source": "code/deepseek_kaggle_v1.ipynb",
+    "code_sha256": "e6029a6975235181ea81312aae5d4dc5ee31b9aca908c76af51d13f603a07a64",
+    "duplicate_of": null,
+    "code_cells": 16
+  },
+  {
+    "source": "code/deepseek_kaggle_v2.ipynb",
+    "code_sha256": "0cc03bec647d37c4d2721f840fd37f0c8b5253eef27859f3831e3f5ff26c30e9",
+    "duplicate_of": null,
+    "code_cells": 16
+  },
+  {
+    "source": "code/gemini_cloud_v1.ipynb",
+    "code_sha256": "35eb08fa6626718e407dd4edfa8292a18e72827f89cab086911683f6c43c3d24",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/gemini_cloud_v2.ipynb",
+    "code_sha256": "5d4b1ee7d196da8c3d0677db45e7c0bb60fdd791f785b7ca171a1c466576318c",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/jaccard_successful_only_cleaned.ipynb",
+    "code_sha256": "e23fad5b40b8760181d95160cad234396b023b68032d5b3b84be2973d43aed00",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/judge_audit_gemini.ipynb",
+    "code_sha256": "b389b4b3f64bf2e7c034123557bea92ac88fdcb543316c2f29aff8887a37367c",
+    "duplicate_of": null,
+    "code_cells": 10
+  },
+  {
+    "source": "code/llama-run.ipynb",
+    "code_sha256": "af4307f28e994f5b91af5ad96914b8c3b3e315faaf492e53e3db42a387d28e5b",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/ollama_test.ipynb",
+    "code_sha256": "af22cc5fcefd17804b8fc3ae4373b327d5a8eb8ddeba4c5606f2b80db63ac036",
+    "duplicate_of": null,
+    "code_cells": 6
+  },
+  {
+    "source": "code/openai_cot_prompting.ipynb",
+    "code_sha256": "ee0def99b7e576ee030a858f9e68c2638cfb8a0ea5565dfd820a0573f0c7524d",
+    "duplicate_of": null,
+    "code_cells": 49
+  },
+  {
+    "source": "code/qwen-benchmark.ipynb",
+    "code_sha256": "6b8bd07abfb2f7dbb7de656285f1464d1c97997a75e8d022c8a522b061031cfa",
+    "duplicate_of": null,
+    "code_cells": 11
+  },
+  {
+    "source": "code/qwen_adaptation_judge_local_model.ipynb",
+    "code_sha256": "a9231604f35713960247139fe43233133eb379b8af7577c1a3cba28793daf3b6",
+    "duplicate_of": null,
+    "code_cells": 14
+  },
+  {
+    "source": "code/qwen_benchmark.ipynb",
+    "code_sha256": "29c646fb29d58536816b3e872c4b19cd0fce41b2a0a4fdfc6669fbfae107c817",
+    "duplicate_of": null,
+    "code_cells": 12
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed.ipynb",
+    "code_sha256": "22f073b3be410abb4d1106fd9f3d86b0d7c6c710ee8ad579dd21119f0b34a707",
+    "duplicate_of": null,
+    "code_cells": 21
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v2.ipynb",
+    "code_sha256": "28009bb8ee5390aacb0d83cb53403bbaf77f737ebfe12da343bca405b1729f2a",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v3.ipynb",
+    "code_sha256": "bbeed0ad9e91d7cdd42141a2859125113fdf5e0a4beffac220aa9352c3364bb2",
+    "duplicate_of": null,
+    "code_cells": 25
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v4 (1).ipynb",
+    "code_sha256": "d6e2ab9264b2e8ec277bc74c47cc3e6b750fda3d38a043893841b266c5d29efb",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/Qwen_Cloud_Fixed_v4.ipynb",
+    "code_sha256": "d6e2ab9264b2e8ec277bc74c47cc3e6b750fda3d38a043893841b266c5d29efb",
+    "duplicate_of": "code/Qwen_Cloud_Fixed_v4 (1).ipynb",
+    "code_cells": 19
+  },
+  {
+    "source": "code/qwen_judge_adaptation_cloud.ipynb",
+    "code_sha256": "35f05e8866ee224b569dc6a54ed7f3f1a0b11dda154e25a302910d6e74ecfc08",
+    "duplicate_of": null,
+    "code_cells": 18
+  },
+  {
+    "source": "code/qwen_local_fix.ipynb",
+    "code_sha256": "9bf0a8ebf9a251b2668e6506ff2033baa6bad99fd132ee92f3657afdf4073e79",
+    "duplicate_of": null,
+    "code_cells": 16
+  },
+  {
+    "source": "code/qwen_local_fixed.ipynb",
+    "code_sha256": "b5030a87682b847f5420ed81101376381aee8d11eb8fff39d0feec11ffca86de",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/qwen_local_thinking_v1.ipynb",
+    "code_sha256": "d70b11582c02369b533b83f85c8d08632c1b970e1fdaffa064a8b4980c850fb9",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/qwen_local_thinking_v2.ipynb",
+    "code_sha256": "941cbcd9a0da7d100831566ec667078ff94212fb0e1dbc327ef848cfd461b8a4",
+    "duplicate_of": null,
+    "code_cells": 19
+  },
+  {
+    "source": "code/results_analysis.ipynb",
+    "code_sha256": "6d5ca71bf6bdebed2fecce1f6061a39b14bf2a37b7a08b3506ac6d38172865ad",
+    "duplicate_of": null,
+    "code_cells": 25
+  },
+  {
+    "source": "code/results_analysis_adaptation.ipynb",
+    "code_sha256": "6d5ca71bf6bdebed2fecce1f6061a39b14bf2a37b7a08b3506ac6d38172865ad",
+    "duplicate_of": "code/results_analysis.ipynb",
+    "code_cells": 25
+  },
+  {
+    "source": "code/results_analysis_adaptation1.ipynb",
+    "code_sha256": "6d5ca71bf6bdebed2fecce1f6061a39b14bf2a37b7a08b3506ac6d38172865ad",
+    "duplicate_of": "code/results_analysis.ipynb",
+    "code_cells": 25
+  },
+  {
+    "source": "code/results_analysis_v2.ipynb",
+    "code_sha256": "95738b5745508c36d7216d1374043ea9cac950007463f90379a0a80d8d77ed79",
+    "duplicate_of": null,
+    "code_cells": 33
+  },
+  {
+    "source": "code/semantic_parser_audit (1).ipynb",
+    "code_sha256": "00b37a5b71f741e51b3333c53589c70e879412ca16860649033dd23d5f77a815",
+    "duplicate_of": null,
+    "code_cells": 9
+  },
+  {
+    "source": "code/semantic_parser_audit.ipynb",
+    "code_sha256": "00831244161fb2bc2217b0a32d934e0be2119e88e22ccd308eb443eb31f641c6",
+    "duplicate_of": null,
+    "code_cells": 15
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/analytica_error_analysis.ipynb",
+    "code_sha256": "1b591cf5eb3c25a82970927c93fdd1b824bb6aa5c6f285814da895b7f5f6141a",
+    "duplicate_of": null,
+    "code_cells": 12
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2) + comparison.ipynb",
+    "code_sha256": "2b9c364822a115f71b4f5c8188f9873fa063648d3e08dd91aca62a07ca4b7fa9",
+    "duplicate_of": null,
+    "code_cells": 21
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(adapted_v2).ipynb",
+    "code_sha256": "d5f4749442f0036a261078cc92c5bdc7d2fc165ba77535f1805d64095fc31e47",
+    "duplicate_of": null,
+    "code_cells": 9
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/benchmark_results_analysis(original_v2).ipynb",
+    "code_sha256": "7479f2f733eadeee4f390cfbe7a0efbb1f899658ca22f814ffcc5041378b9c6a",
+    "duplicate_of": null,
+    "code_cells": 15
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/constraint_adaptation_analysis.ipynb",
+    "code_sha256": "2c19b62861c8a100e7171498975f98b4d76f98bcc113538b01acfd3cffe868fe",
+    "duplicate_of": null,
+    "code_cells": 16
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/generator_solver_investigation.ipynb",
+    "code_sha256": "79eb735343cee231957b7467fd3d1e3f29205727c6502c3b7acdb396091e5ec8",
+    "duplicate_of": null,
+    "code_cells": 15
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_adaptation1.ipynb",
+    "code_sha256": "6d5ca71bf6bdebed2fecce1f6061a39b14bf2a37b7a08b3506ac6d38172865ad",
+    "duplicate_of": "code/results_analysis.ipynb",
+    "code_cells": 25
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_v2.ipynb",
+    "code_sha256": "95738b5745508c36d7216d1374043ea9cac950007463f90379a0a80d8d77ed79",
+    "duplicate_of": "code/results_analysis_v2.ipynb",
+    "code_cells": 33
+  },
+  {
+    "source": "code/Results_notebooks-20261113T023708Z-1-001/Results_notebooks/results_analysis_visualizations.ipynb",
+    "code_sha256": "37fe532023588cf9a69269920342173fc53e59a07557be6bd05a70ddda30850a",
+    "duplicate_of": null,
+    "code_cells": 30
+  }
+]

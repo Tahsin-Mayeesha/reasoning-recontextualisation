@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1190" viewBox="0 0 1180 1190" role="img" aria-labelledby="title description">
+<title id="title">Logic puzzle recontextualisation workflow</title>
+<desc id="description">An actor selection puzzle becomes a garden plant selection puzzle through a one-to-one mapping. GPT-4o generates the adaptation, Qwen judges it, and this example passes on its first attempt. A separate dashed feedback branch shows refinement for rejected outputs. Both examples select four of seven entities, preserve three logical constraints, and have the correct option B.</desc>
+<defs>
+ <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#323b45"/></marker>
+ <marker id="optionalArrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#7d877f"/></marker>
+ <style>text{font-family:Arial,Helvetica,sans-serif;fill:#18212b} .muted{fill:#52616b} .small{font-size:17px} .body{font-size:21px} .label{font-size:19px;font-weight:700} .heading{font-size:26px;font-weight:700} .node{font-size:20px;font-weight:700} .green{fill:#24703a}</style>
+</defs>
+<rect width="1180" height="1190" rx="0" fill="#ffffff"/>
+
+<text x="52" y="49" class="heading" text-anchor="start">Same logic. A new narrative.</text>
+<text x="52" y="80" class="body muted" text-anchor="start">Generate a new setting, verify the mapping, and refine rejected outputs.</text>
+<rect x="436" y="110" width="250" height="63" rx="10" fill="#fff0d8" stroke="#c77812" stroke-width="1.4" />
+<text x="561" y="136" class="small" text-anchor="middle">P→A   Q→B   R→C   S→D</text>
+<text x="561" y="159" class="small" text-anchor="middle">T→E   U→F   V→G</text>
+<rect x="52" y="203" width="130" height="81" rx="13" fill="#dceafe" stroke="#5c83cb" stroke-width="1.4" />
+<text x="117.0" y="234" class="node" text-anchor="middle">Original</text>
+<text x="117.0" y="261" class="small" text-anchor="middle">puzzle</text>
+<rect x="230" y="203" width="150" height="81" rx="13" fill="#e4d7ee" stroke="#9371b0" stroke-width="1.4" />
+<text x="305.0" y="234" class="node" text-anchor="middle">Generator</text>
+<text x="305.0" y="261" class="small" text-anchor="middle">GPT-4o</text>
+<rect x="436" y="203" width="172" height="81" rx="13" fill="#ffe6c6" stroke="#c77812" stroke-width="1.4" />
+<text x="522.0" y="234" class="node" text-anchor="middle">Adapted</text>
+<text x="522.0" y="261" class="small" text-anchor="middle">puzzle</text>
+<rect x="665" y="203" width="170" height="81" rx="13" fill="#e4d7ee" stroke="#9371b0" stroke-width="1.4" />
+<text x="750.0" y="234" class="node" text-anchor="middle">Judge</text>
+<text x="750.0" y="261" class="small" text-anchor="middle">Qwen3.5:9B</text>
+<rect x="891" y="203" width="237" height="81" rx="13" fill="#f1f2f2" stroke="#40464d" stroke-width="1.4" />
+<text x="1009.5" y="234" class="node green" text-anchor="middle">PASS</text>
+<text x="1009.5" y="261" class="small" text-anchor="middle">Accepted in round 1</text>
+<path d="M182 244 H227" fill="none" stroke="#323b45" stroke-width="1.8"  marker-end="url(#arrow)"/>
+<path d="M380 244 H433" fill="none" stroke="#323b45" stroke-width="1.8"  marker-end="url(#arrow)"/>
+<path d="M608 244 H662" fill="none" stroke="#323b45" stroke-width="1.8"  marker-end="url(#arrow)"/>
+<path d="M835 244 H888" fill="none" stroke="#323b45" stroke-width="1.8"  marker-end="url(#arrow)"/>
+<rect x="436" y="337" width="230" height="58" rx="12" fill="#c9e990" stroke="#7eaa48" stroke-width="1.4" />
+<text x="551" y="373" class="label" text-anchor="middle">Refine with feedback</text>
+<path d="M750 284 V366 H671" fill="none" stroke="#7d877f" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#optionalArrow)"/>
+<path d="M436 366 H305 V289" fill="none" stroke="#7d877f" stroke-width="1.8" stroke-dasharray="6 5" marker-end="url(#optionalArrow)"/>
+<text x="775" y="316" class="small muted" text-anchor="start">If rejected</text>
+<text x="551" y="421" class="small muted" text-anchor="middle">Dashed branch: used only for failed generations</text>
+<line x1="52" y1="445" x2="1128" y2="445" stroke="#bdc6cc" stroke-width="1"/>
+<rect x="52" y="470" width="520" height="613" rx="30" fill="#efffeb" stroke="#3a91b2" stroke-width="1.4" />
+<text x="78" y="512" class="heading" text-anchor="start">Original puzzle</text>
+<text x="78" y="544" class="body muted" text-anchor="start">Benefit program · actors</text>
+<text x="78" y="585" class="label" text-anchor="start">Select exactly 4 of 7.</text>
+<rect x="608" y="470" width="520" height="613" rx="30" fill="#fff0e9" stroke="#555b61" stroke-width="1.4" />
+<text x="634" y="512" class="heading" text-anchor="start">Adapted puzzle</text>
+<text x="634" y="544" class="body muted" text-anchor="start">Garden plot · plants</text>
+<text x="634" y="585" class="label" text-anchor="start">Select exactly 4 of 7.</text>
+<rect x="78" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="103.5" y="634" class="label" text-anchor="middle">P</text>
+<rect x="142" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="167.5" y="634" class="label" text-anchor="middle">Q</text>
+<rect x="206" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="231.5" y="634" class="label" text-anchor="middle">R</text>
+<rect x="270" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="295.5" y="634" class="label" text-anchor="middle">S</text>
+<rect x="334" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="359.5" y="634" class="label" text-anchor="middle">T</text>
+<rect x="398" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="423.5" y="634" class="label" text-anchor="middle">U</text>
+<rect x="462" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="487.5" y="634" class="label" text-anchor="middle">V</text>
+<rect x="634" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="659.5" y="634" class="label" text-anchor="middle">A</text>
+<rect x="698" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="723.5" y="634" class="label" text-anchor="middle">B</text>
+<rect x="762" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="787.5" y="634" class="label" text-anchor="middle">C</text>
+<rect x="826" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="851.5" y="634" class="label" text-anchor="middle">D</text>
+<rect x="890" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="915.5" y="634" class="label" text-anchor="middle">E</text>
+<rect x="954" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="979.5" y="634" class="label" text-anchor="middle">F</text>
+<rect x="1018" y="607" width="51" height="39" rx="6" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="1043.5" y="634" class="label" text-anchor="middle">G</text>
+<text x="78" y="689" class="label" text-anchor="start">Constraints</text>
+<text x="78" y="724" class="body" text-anchor="start">1. Exactly one of P or T is selected.</text>
+<text x="78" y="768" class="body" text-anchor="start">2. If T is selected, Q is selected.</text>
+<text x="78" y="812" class="body" text-anchor="start">3. If U is selected,</text>
+<text x="78" y="839" class="body" text-anchor="start">    neither P nor R is selected.</text>
+<text x="634" y="689" class="label" text-anchor="start">Constraints</text>
+<text x="634" y="724" class="body" text-anchor="start">1. Exactly one of A or E is selected.</text>
+<text x="634" y="768" class="body" text-anchor="start">2. If E is selected, B is selected.</text>
+<text x="634" y="812" class="body" text-anchor="start">3. If F is selected,</text>
+<text x="634" y="839" class="body" text-anchor="start">    neither A nor C is selected.</text>
+<text x="78" y="889" class="label" text-anchor="start">Question</text>
+<text x="78" y="922" class="body" text-anchor="start">If U is selected, which must also</text>
+<text x="78" y="949" class="body" text-anchor="start">be selected?</text>
+<rect x="78" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="119" y="997" class="small" text-anchor="middle">(A) P</text>
+<rect x="170" y="972" width="82" height="36" rx="5" fill="#dcf0d7" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="211" y="997" class="small" text-anchor="middle">(B) Q</text>
+<rect x="262" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="303" y="997" class="small" text-anchor="middle">(C) R</text>
+<rect x="354" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="395" y="997" class="small" text-anchor="middle">(D) S</text>
+<rect x="446" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="487" y="997" class="small" text-anchor="middle">(E) V</text>
+<text x="78" y="1041" class="label green" text-anchor="start">Correct option: B  ·  Q</text>
+<text x="323" y="1069" class="small muted" text-anchor="middle">U → not P → T → Q</text>
+<text x="634" y="889" class="label" text-anchor="start">Question</text>
+<text x="634" y="922" class="body" text-anchor="start">If F is selected, which must also</text>
+<text x="634" y="949" class="body" text-anchor="start">be selected?</text>
+<rect x="634" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="675" y="997" class="small" text-anchor="middle">(A) A</text>
+<rect x="726" y="972" width="82" height="36" rx="5" fill="#dcf0d7" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="767" y="997" class="small" text-anchor="middle">(B) B</text>
+<rect x="818" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="859" y="997" class="small" text-anchor="middle">(C) C</text>
+<rect x="910" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="951" y="997" class="small" text-anchor="middle">(D) D</text>
+<rect x="1002" y="972" width="82" height="36" rx="5" fill="#ffffff" stroke="#a7b4b8" stroke-width="1.4" />
+<text x="1043" y="997" class="small" text-anchor="middle">(E) G</text>
+<text x="634" y="1041" class="label green" text-anchor="start">Correct option: B  ·  B</text>
+<text x="879" y="1069" class="small muted" text-anchor="middle">F → not A → E → B</text>
+<text x="590" y="1125" class="label" text-anchor="middle">7→7 entities     ·     4→4 selections     ·     3→3 constraints     ·     Same answer option</text>
+<text x="590" y="1158" class="small muted" text-anchor="middle">Illustrative pair: puzzle 113, Q1. The recorded judge accepted the adaptation on its first attempt.</text>
+</svg>

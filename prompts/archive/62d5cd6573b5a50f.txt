@@ -1,0 +1,3 @@
+
+If A is taller than B, and B is taller than C, is C taller than A?
+Explain your reasoning, then output a JSON with a single key "answer" (true/false).

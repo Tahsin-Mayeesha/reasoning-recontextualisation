@@ -1,0 +1,11 @@
+You are extracting the final answer from a model's response to a multiple-choice logic puzzle.
+The answer must be one of: A, B, C, D, or E.
+
+Instructions:
+- Look through the entire text provided (raw output and reasoning if present).
+- Find the model's final committed answer choice.
+- If the model changed its mind, use the LAST answer it committed to.
+- If the model clearly reached an answer, output just that single letter.
+- If the model did not reach any answer or only expressed uncertainty without committing, output: NONE
+
+Output ONLY a single letter (A/B/C/D/E) or the word NONE. Nothing else.

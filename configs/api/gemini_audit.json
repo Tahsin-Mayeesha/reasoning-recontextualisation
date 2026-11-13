@@ -1,0 +1,9 @@
+{
+  "generator": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "max_tokens": 1024,
+    "temperature": 0,
+    "thinking_budget": 0
+  }
+}
