@@ -33,11 +33,13 @@ def main():
         p = sub.add_parser(name)
         p.add_argument('--input', required=True)
         p.add_argument('--output', required=True)
-        if name in ('sample', 'select-pairs'):
+        if name == 'sample':
             p.add_argument('--seed', required=True, type=int)
-            p.add_argument('--counts', default='Hard:50,Medium:50,Easy:50' if name == 'sample' else 'Hard:34,Medium:34,Easy:32')
+            p.add_argument('--counts', default='Hard:50,Medium:50,Easy:50')
         if name == 'select-pairs':
             p.add_argument('--originals', required=True)
+            p.add_argument('--size', type=int, help='Optional number of successful adaptations; default: all')
+            p.add_argument('--seed', type=int, default=42, help='Random seed used only with --size')
     for name in ('adapt', 'solve', 'audit-answer', 'audit-judge'):
         p = sub.add_parser(name)
         p.add_argument('--input', required=True)
@@ -78,11 +80,13 @@ def main():
         frame = frame[frame.final_outcome == 'equivalent'].copy()
         # Keep an adaptation ID: repeated source questions across generators are legitimate.
         frame['adaptation_id'] = [f'adaptation-{i:06d}' for i in range(len(frame))]
-        if 'Solved_Percentile' not in frame:
-            frame = frame.merge(original[KEYS + ['Solved_Percentile']], on=KEYS, how='left', validate='many_to_one')
-        counts = {k: int(v) for k, v in (part.split(':') for part in args.counts.split(','))}
-        selected = stratify(frame, counts, args.seed)
-        selected = selected.drop(columns=['Sample', 'Answer'], errors='ignore')
+        if frame.empty:
+            raise ValueError('No successful adaptations are available for paired evaluation')
+        if args.size is not None:
+            if not 1 <= args.size <= len(frame):
+                raise ValueError(f'--size must be between 1 and {len(frame)}')
+            frame = frame.sample(n=args.size, random_state=args.seed)
+        selected = frame.drop(columns=['Sample', 'Answer', 'Solved_Percentile', 'difficulty'], errors='ignore')
         paired = selected.merge(original[KEYS + ['Sample', 'Answer']], on=KEYS, how='left', validate='many_to_one')
         if paired['Sample'].isna().any():
             raise ValueError('Missing original match')

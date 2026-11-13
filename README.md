@@ -45,7 +45,7 @@ Set `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, or `GEMINI_API_KEY` in your process e
 
 ## Input format
 
-Supply your own CSV or XLSX files with one row per question. Datasets and generated puzzle collections are not bundled with this repository.
+Supply your own CSV or XLSX files with one row per question. A five-puzzle synthetic demonstration is included in `sample/puzzles.csv`. Supply your own data for larger experiments; benchmark datasets and generated puzzle collections are not bundled.
 
 | Column | Meaning |
 |---|---|
@@ -53,7 +53,6 @@ Supply your own CSV or XLSX files with one row per question. Datasets and genera
 | `Question_Number` | Question identifier, consistent across stages |
 | `Sample` | Full `<context>`, `<clues>`, and `<question>` unit, including A-E choices |
 | `Answer` | Gold letter A-E, needed for scoring and paired-set construction |
-| `Solved_Percentile` | Difficulty metadata on a 0-100 scale, needed for stratified sampling |
 
 Keys must be unique within a run. Paired sets also carry `adaptation_id` to distinguish adaptations of the same source question by different generators. Only the puzzle text in `Sample` is sent to the solver or generator; gold labels remain available for evaluation.
 
@@ -65,15 +64,17 @@ python -m recon prepare --input private/puzzles.xlsx --output data/questions.csv
 
 Attach gold labels by puzzle/question keys after preparation. The converter does not assume an answer-column layout or perform OCR.
 
-## Try a complete example
+## Try the five-puzzle sample
 
-This original example can be shared. It contains no benchmark question or model-generated dataset. Run commands from the repository root.
+The repository includes [sample/puzzles.csv](sample/puzzles.csv), containing five original synthetic question units. No file-generation step is required.
 
-```sh
-python examples/create_sample.py --output data/synthetic_puzzle.csv
-```
-
-Create the file once; if it already exists, use it or choose a new output filename. The script uses a CSV writer to quote the multiline `Sample` correctly. To create an Excel equivalent, use `--output data/synthetic_puzzle.xlsx`.
+| Puzzle | Constraint type | Gold answer |
+|---|---|---|
+| SYN001 | Ordering and adjacency | D |
+| SYN002 | Grouping | B |
+| SYN003 | Conditional selection | E |
+| SYN004 | Assignment and fixed positions | A |
+| SYN005 | Network routes | C |
 
 ### One complete input row
 
@@ -83,7 +84,6 @@ Create the file once; if it already exists, use it or choose a new output filena
 | `Question_Number` | `Q1` |
 | `Sample` | The complete block below, in a single cell |
 | `Answer` | `D` |
-| `Solved_Percentile` | `50`, illustrative metadata only; not a measured human score |
 
 ```xml
 <context>
@@ -104,34 +104,28 @@ Which of the following must be the order of the vans, from position 1 to positio
 </question>
 ```
 
-The unique valid order is Amber, Cedar, Birch. The gold answer is D. Gold labels and percentile metadata are stored outside `Sample` and are not passed to models.
+The unique valid order is Amber, Cedar, Birch. The gold answer is D. Gold labels are stored outside `Sample` and are not passed to models.
 
-### Run the example with a live model
+### Generate and judge adaptations with Ollama
 
-These commands require Ollama to be running with `qwen3.5:9b` downloaded:
+After installing the package, start Ollama with `ollama serve` in a separate terminal if it is not already running. In your working terminal, download the example model and run all five rows:
 
 ```sh
-python -m recon solve --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --mode zs --output outputs/sample_solve.jsonl
+ollama pull qwen3.5:9b
+python -m recon adapt --generator-model qwen3.5:9b --judge-model qwen3.5:9b --think false --judge-think true --max-tokens 4000 --judge-max-tokens 8192 --num-ctx 16384 --judge-num-ctx 16384 --input sample/puzzles.csv --output outputs/sample_adaptations.jsonl
+python -m recon export --input outputs/sample_adaptations.jsonl --output outputs/sample_adaptations.csv
+```
+
+This uses the same Qwen generator/judge combination as the existing experiment preset. For other installed chat-capable models, replace the two model tags independently. Omit the thinking flags unless you know the chosen models support them. These commands require a running Ollama server; successful adaptation depends on the actual model outputs.
+
+### Solve the original sample
+
+```sh
+python -m recon solve --model qwen3.5:9b --input sample/puzzles.csv --mode zs --max-tokens 2048 --output outputs/sample_solve.jsonl
 python -m recon summarize --input outputs/sample_solve.jsonl --output outputs/sample_solve_summary.json
-python -m recon adapt --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --output outputs/sample_adapt.jsonl
-python -m recon export --input outputs/sample_adapt.jsonl --output outputs/sample_adapt.csv
 ```
 
-A successful solver should output D. Adaptation acceptance depends on what the live generator and judge produce. To use a cloud generator, replace the config with an API preset and set that provider's API key. The configured judge still requires Ollama.
-
-### Run the offline check
-
-Run the offline end-to-end check without a model server or API credentials:
-
-```sh
-python -m unittest discover -s tests -p test_sample_workflow.py -v
-```
-
-That test invokes the real CLI, data loader, official prompts, Ollama request builder, parsers, checkpointing, feedback refinement, paired-set construction, both solver modes, scoring, and CSV export. HTTP responses are simulated. It verifies plumbing and deterministic behavior, not model accuracy or a real judge's equivalence assessment.
-
-The offline sample check passes. Live inference was not validated in the development session because no API keys were configured and the local Ollama endpoint was unavailable.
-
-Output files stay in ignored local folders. Use fresh output names for a new run, or `--resume` with unchanged inputs/configuration.
+The gold answers are D, B, E, A, and C. Summary accuracy compares the model's parsed predictions with these labels. Output files stay in ignored local folders. Use fresh output names for a new run, or `--resume` with unchanged inputs and settings.
 
 ## API models
 
@@ -195,24 +189,22 @@ Selecting a new model with `--model`, `--generator-model`, or `--judge-model` re
 
 The selected model must support text chat, fit in the available hardware, and produce the required answer or judge format. Model-independent transport does not guarantee reasoning accuracy or reliable judging for every model. The DeepSeek Ollama sample uses a different execution stack from the archived Hugging Face / BitsAndBytes runs.
 
-## Sampling and paired evaluation
+## Paired evaluation
 
-Optional stratified sampling uses `Solved_Percentile`: Hard below 30, Medium from 30 to below 60, and Easy from 60 to 100. Specify counts and a random seed for your experiment:
+Paired evaluation requires only the source IDs, source question text, gold answers, and successful adaptations. It does not use `Solved_Percentile`, difficulty labels, or stratification.
 
-```sh
-python -m recon sample --input data/questions.csv --counts Hard:50,Medium:50,Easy:50 --seed 42 --output data/generation_sample.csv
-```
-
-Pool adaptation exports locally, preserving generator identity and source IDs. Select successful adaptations, then split them into matching original and adapted inputs:
+Select all successful adaptations and construct matching original/adapted solver inputs:
 
 ```sh
-python -m recon select-pairs --input private/pooled_adaptations.csv --originals data/questions.csv --counts Hard:34,Medium:34,Easy:32 --seed 42 --output data/paired_questions.csv
-python -m recon split-pairs --input data/paired_questions.csv --output data/paired_questions
-python -m recon solve --config configs/api/openai_gpt4o.json --input data/paired_questions.original.csv --mode cot --output outputs/gpt4o_pairs_original.jsonl
-python -m recon solve --config configs/api/openai_gpt4o.json --input data/paired_questions.adapted.csv --mode cot --output outputs/gpt4o_pairs_adapted.jsonl
+python -m recon select-pairs --input outputs/sample_adaptations.jsonl --originals sample/puzzles.csv --output outputs/sample_pairs.csv
+python -m recon split-pairs --input outputs/sample_pairs.csv --output outputs/sample_pairs
+python -m recon solve --model qwen3.5:9b --input outputs/sample_pairs.original.csv --mode zs --output outputs/paired_original_solve.jsonl
+python -m recon solve --model qwen3.5:9b --input outputs/sample_pairs.adapted.csv --mode zs --output outputs/paired_adapted_solve.jsonl
 ```
 
-The counts above are examples. Selection samples adaptation rows without replacement and does not balance generators or enforce one adaptation per source puzzle. Join paired results using `adaptation_id` and source IDs. Account for repeated source puzzles when performing statistical comparisons.
+Only judge-accepted adaptations enter the paired set, so it can contain fewer than five rows. If none is accepted, selection reports an error. For a larger private adaptation pool, add `--size 100 --seed 42` to select 100 successful adaptation rows uniformly without replacement. Omit `--size` to retain all successful rows.
+
+Selection does not balance generators or enforce one adaptation per source puzzle. Join paired results using `adaptation_id` and source IDs. Account for repeated source puzzles when performing statistical comparisons. Historical difficulty-stratified generation sampling remains available through the separate `sample` command; it is not used for paired evaluation.
 
 ## Checkpoints and results
 
@@ -239,18 +231,10 @@ Audits append separate fields and preserve primary decisions. Missing prediction
 - `analysis/notebooks/`: archived analysis notebooks with saved outputs cleared and credentials redacted.
 - `docs/notebook_inventory.json` and `docs/code_review.json`: source notebook inventory, duplicate relationships, and configuration records.
 - `docs/REPRODUCIBILITY.md`: implementation provenance, configuration differences, and reproduction limits.
-- `docs/VALIDATION.md`: checks performed and remaining runtime limitations.
 - `scripts/check_publication.py`: checks for credentials, dataset artifacts, and saved notebook outputs.
 
 See [the analysis guide](analysis/README.md) before using the archived notebooks. They retain their original file-path and column assumptions and may need local configuration.
 
-## Validation and data handling
+## Data handling
 
-```sh
-python -m unittest discover -s tests -v
-python scripts/check_publication.py
-```
-
-The offline tests use artificial inputs. Live SDK integrations and model availability require checks in your own environment. API stages send the selected puzzle content to the configured provider and can incur charges.
-
-Keep source data, generated adaptations, traces, result files, and credentials in ignored local folders. The publication checker is a useful check, but review files and Git history before sharing a repository. Select a code license before distributing the project.
+API stages send the selected puzzle content to the configured provider and can incur charges. Keep source benchmark data, generated adaptations, traces, result files, and credentials in ignored local folders. The only shared input data is the original synthetic five-puzzle sample. Review files and Git history before sharing a repository. Select a code license before distributing the project.

@@ -21,3 +21,6 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+
+# Share only the original five-puzzle demonstration input.
+!sample/puzzles.csv

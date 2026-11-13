@@ -52,7 +52,7 @@ class SampleWorkflow(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT / 'tests') as directory:
             work = Path(directory)
             source = work / 'sample.csv'
-            with patch.object(sys, 'argv', ['create_sample', '--output', str(source)]):
+            with patch.object(sys, 'argv', ['create_sample', '--single', '--output', str(source)]):
                 sample.main()
 
             def cli(*args):
@@ -84,7 +84,7 @@ class SampleWorkflow(unittest.TestCase):
             self.assertIn('DIRECTION_FLIPPED', requests[3]['messages'][1]['content'])
             cli('export', '--input', work / 'adapt.jsonl', '--output', work / 'adapt.csv')
             cli('select-pairs', '--input', work / 'adapt.csv', '--originals', source,
-                '--seed', '42', '--counts', 'Medium:1', '--output', work / 'pairs.csv')
+                '--seed', '42', '--size', '1', '--output', work / 'pairs.csv')
             cli('split-pairs', '--input', work / 'pairs.csv', '--output', work / 'paired')
             pair = pd.read_csv(work / 'paired.adapted.csv')
             self.assertEqual(pair.iloc[0].Sample, ADAPTED)

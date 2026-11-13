@@ -1,4 +1,5 @@
 """Check publication files without printing detected secret values."""
+import csv
 import json
 from pathlib import Path
 import re
@@ -14,7 +15,14 @@ for path in ROOT.rglob('*'):
     # These root folders hold ignored local inputs and run outputs, not publication assets.
     if relative.parts[0] in {'data', 'outputs', 'private', 'build', 'dist'}:
         continue
-    if path.suffix.lower() in FORBIDDEN:
+    approved_sample = relative.as_posix() == 'sample/puzzles.csv'
+    if approved_sample:
+        with path.open(encoding='utf-8', newline='') as stream:
+            reader = csv.DictReader(stream)
+            rows = list(reader)
+        if reader.fieldnames != ['Puzzle_Number', 'Question_Number', 'Sample', 'Answer'] or len(rows) != 5:
+            errors.append('Invalid five-puzzle sample schema or row count')
+    if path.suffix.lower() in FORBIDDEN and not approved_sample:
         errors.append(f'Data/media artifact: {relative}')
     text = path.read_text(encoding='utf-8')
     if SECRET.search(text):

@@ -2,10 +2,10 @@
 
 Offline checks performed during consolidation:
 
-- Sixteen unit/integration tests passed: answer extraction, judge schema validation, feedback refinement, parse exhaustion, missing-generation rejection, checkpoint resume identity, data preparation/stratification, paired selection/splitting, native Ollama request shape, canonical solver-prompt dispatch across all configured providers.
+- Eighteen unit/integration tests passed: answer extraction, judge schema validation, feedback refinement, parse exhaustion, missing-generation rejection, checkpoint resume identity, data preparation/stratification, paired selection/splitting, native Ollama request shape, canonical solver-prompt dispatch across all configured providers.
 - Python source compilation passed for the reusable package, tests, and publication checker.
 - CLI help loaded successfully.
-- Publication checker: zero credential patterns, dataset/media artifacts, or saved notebook outputs/attachments/execution counts.
+- Publication checker: zero credential patterns, unauthorized dataset/media artifacts, or saved notebook outputs/attachments/execution counts. The five-puzzle synthetic CSV is explicitly allowed.
 - SHA-256 verification: all 52 source code notebooks unchanged.
 - The six canonical prompts were checked against rendered Appendix B.3.1–B.3.6. Active solver dispatch uses one shared prompt per mode across all providers.
 - Every analysis copy's code matches its source modulo the documented credential redaction.
@@ -25,3 +25,9 @@ No provider API keys were configured in this session, and the local Ollama endpo
 ## Model-independent Ollama selection
 
 Five additional offline tests exercise arbitrary namespaced model tags, separate generator/judge endpoints, model-default and named thinking controls, an explicit solver configuration, native options, missing-judge validation, and resume rejection after a model change. They also check that replacing the Qwen preset does not inherit its forced thinking controls. These use simulated HTTP responses and do not certify live performance of arbitrary models.
+
+## Percentile-free pairs and five original puzzles
+
+Two further internal tests independently verify the five sample answers and check all-row or reproducible size-limited paired selection without a percentile column. Oversized sample requests fail clearly. The shared synthetic sample schema is Puzzle_Number, Question_Number, Sample, Answer. No percentiles are required for solving, adaptation, scoring, or paired evaluation.
+
+The live Ollama check was repeated with network permissions and returned connection refused. No live result is claimed for the new five-puzzle sample. Internal test commands and descriptions were removed from the main and example READMEs, while tests remain available internally.

@@ -1,14 +1,17 @@
-# Complete synthetic input example
+# Five-puzzle Ollama example
 
-This original example can be shared. It contains no benchmark question or model-generated dataset. Run commands from the repository root.
 
-```sh
-python examples/create_sample.py --output data/synthetic_puzzle.csv
-```
+The repository includes [sample/puzzles.csv](../sample/puzzles.csv), containing five original synthetic question units. No file-generation step is required.
 
-The script uses a CSV writer to quote the multiline `Sample` correctly. To create an Excel equivalent, use `--output data/synthetic_puzzle.xlsx`.
+| Puzzle | Constraint type | Gold answer |
+|---|---|---|
+| SYN001 | Ordering and adjacency | D |
+| SYN002 | Grouping | B |
+| SYN003 | Conditional selection | E |
+| SYN004 | Assignment and fixed positions | A |
+| SYN005 | Network routes | C |
 
-## One complete input row
+### One complete input row
 
 | Column | Value |
 |---|---|
@@ -16,7 +19,6 @@ The script uses a CSV writer to quote the multiline `Sample` correctly. To creat
 | `Question_Number` | `Q1` |
 | `Sample` | The complete block below, in a single cell |
 | `Answer` | `D` |
-| `Solved_Percentile` | `50`, illustrative metadata only; not a measured human score |
 
 ```xml
 <context>
@@ -37,27 +39,28 @@ Which of the following must be the order of the vans, from position 1 to positio
 </question>
 ```
 
-The unique valid order is Amber, Cedar, Birch. The gold answer is D. Gold labels and percentile metadata are stored outside `Sample` and are not passed to models.
+The unique valid order is Amber, Cedar, Birch. The gold answer is D. Gold labels are stored outside `Sample` and are not passed to models.
 
-## Live checks
+### Generate and judge adaptations with Ollama
 
-These commands require Ollama to be running with `qwen3.5:9b` downloaded:
+After installing the package, start Ollama with `ollama serve` in a separate terminal if it is not already running. In your working terminal, download the example model and run all five rows:
 
 ```sh
-python -m recon solve --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --mode zs --output outputs/sample_solve.jsonl
+ollama pull qwen3.5:9b
+python -m recon adapt --generator-model qwen3.5:9b --judge-model qwen3.5:9b --think false --judge-think true --max-tokens 4000 --judge-max-tokens 8192 --num-ctx 16384 --judge-num-ctx 16384 --input sample/puzzles.csv --output outputs/sample_adaptations.jsonl
+python -m recon export --input outputs/sample_adaptations.jsonl --output outputs/sample_adaptations.csv
+```
+
+This uses the same Qwen generator/judge combination as the existing experiment preset. For other installed chat-capable models, replace the two model tags independently. Omit the thinking flags unless you know the chosen models support them. These commands require a running Ollama server; successful adaptation depends on the actual model outputs.
+
+### Solve the original sample
+
+```sh
+python -m recon solve --model qwen3.5:9b --input sample/puzzles.csv --mode zs --max-tokens 2048 --output outputs/sample_solve.jsonl
 python -m recon summarize --input outputs/sample_solve.jsonl --output outputs/sample_solve_summary.json
-python -m recon adapt --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --output outputs/sample_adapt.jsonl
-python -m recon export --input outputs/sample_adapt.jsonl --output outputs/sample_adapt.csv
 ```
 
-A successful solver should output D. Adaptation acceptance depends on what the live generator and judge produce. To use a cloud generator, replace the config with an API preset and set that provider's API key. The configured judge still requires Ollama.
+The gold answers are D, B, E, A, and C. Summary accuracy compares the model's parsed predictions with these labels. Output files stay in ignored local folders. Use fresh output names for a new run, or `--resume` with unchanged inputs and settings.
 
-Run the offline end-to-end check without a model server or API credentials:
 
-```sh
-python -m unittest discover -s tests -p test_sample_workflow.py -v
-```
-
-That test invokes the real CLI, data loader, official prompts, Ollama request builder, parsers, checkpointing, feedback refinement, paired-set construction, both solver modes, scoring, and CSV export. HTTP responses are simulated. It verifies plumbing and deterministic behavior, not model accuracy or a real judge's equivalence assessment.
-
-Output files stay in ignored local folders. Use fresh output names for a new run, or `--resume` with unchanged inputs/configuration.
+To regenerate the five-puzzle CSV into a new local file, run `python examples/create_sample.py --output data/synthetic_puzzles.csv`. For an Excel copy, use `--output data/synthetic_puzzles.xlsx`. Run these commands from the repository root.

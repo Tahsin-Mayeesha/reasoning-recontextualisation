@@ -1,0 +1,85 @@
+Puzzle_Number,Question_Number,Sample,Answer
+SYN001,Q1,"<context>
+Three delivery vans, Amber, Birch, and Cedar, occupy positions 1, 2, and 3 in a queue.
+Each van occupies exactly one position, and no position contains more than one van.
+</context>
+<clues>
+1. Amber is somewhere before Birch.
+2. Cedar is immediately after Amber.
+</clues>
+<question>
+Which of the following must be the order of the vans, from position 1 to position 3?
+(A) Amber, Birch, Cedar
+(B) Birch, Amber, Cedar
+(C) Cedar, Amber, Birch
+(D) Amber, Cedar, Birch
+(E) Birch, Cedar, Amber
+</question>",D
+SYN002,Q1,"<context>
+Six volunteers, Iris, Jade, Kai, Lena, Milo, and Noor, are assigned to teams 1 and 2.
+Each team has exactly three volunteers, and each volunteer belongs to exactly one team.
+</context>
+<clues>
+1. Iris and Jade are on different teams.
+2. Kai is on the same team as Iris.
+3. Lena is on the same team as Jade.
+4. Milo and Noor are on different teams.
+</clues>
+<question>
+If Iris is on team 1, which of the following must also be on team 1?
+(A) Jade
+(B) Kai
+(C) Lena
+(D) Milo
+(E) Noor
+</question>",B
+SYN003,Q1,"<context>
+Exactly three sensors are selected from Aster, Beryl, Coral, Dune, and Elm.
+</context>
+<clues>
+1. Aster must be selected.
+2. If Beryl is selected, Coral must also be selected.
+3. Dune and Elm cannot both be selected.
+</clues>
+<question>
+Which of the following could be the complete set of selected sensors?
+(A) Aster, Beryl, Dune
+(B) Beryl, Coral, Dune
+(C) Aster, Dune, Elm
+(D) Aster, Beryl, Elm
+(E) Aster, Beryl, Coral
+</question>",E
+SYN004,Q1,"<context>
+Three parcels, Red, Silver, and Teal, occupy lockers 1, 2, and 3.
+Each locker contains exactly one parcel, and each parcel occupies exactly one locker.
+</context>
+<clues>
+1. Red is not in locker 1.
+2. Silver is not in locker 3.
+3. Teal is in locker 3.
+</clues>
+<question>
+Which of the following must list the parcels in lockers 1, 2, and 3, respectively?
+(A) Silver, Red, Teal
+(B) Red, Silver, Teal
+(C) Silver, Teal, Red
+(D) Teal, Red, Silver
+(E) Red, Teal, Silver
+</question>",A
+SYN005,Q1,"<context>
+A rail network has four stations: Alder, Brook, Cove, and Dale.
+A direct link can be traveled in either direction. There are no links other than those listed.
+</context>
+<clues>
+1. Alder is directly linked to Brook.
+2. Brook is directly linked to Cove.
+3. Brook is directly linked to Dale.
+</clues>
+<question>
+Which of the following could be a route from Alder to Dale that uses exactly two direct links?
+(A) Alder, Cove, Dale
+(B) Alder, Dale
+(C) Alder, Brook, Dale
+(D) Alder, Brook, Cove, Dale
+(E) Alder, Cove, Brook, Dale
+</question>",C

@@ -85,11 +85,11 @@ class Tests(unittest.TestCase):
         import sys
         with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as directory:
             directory = Path(directory)
-            original = pd.DataFrame([{**ROW, 'Solved_Percentile': 20}])
-            pool = pd.DataFrame([{**ROW, 'Solved_Percentile': 20, 'final_outcome': 'equivalent', 'final_adapted_puzzle': GEN, 'generator_model': 'test'}])
+            original = pd.DataFrame([{**ROW}])
+            pool = pd.DataFrame([{**ROW, 'final_outcome': 'equivalent', 'final_adapted_puzzle': GEN, 'generator_model': 'test'}])
             original.to_csv(directory / 'original.csv', index=False)
             pool.to_csv(directory / 'pool.csv', index=False)
-            args = ['recon', 'select-pairs', '--input', str(directory / 'pool.csv'), '--originals', str(directory / 'original.csv'), '--seed', '42', '--counts', 'Hard:1', '--output', str(directory / 'pairs.csv')]
+            args = ['recon', 'select-pairs', '--input', str(directory / 'pool.csv'), '--originals', str(directory / 'original.csv'), '--seed', '42', '--size', '1', '--output', str(directory / 'pairs.csv')]
             with patch.object(sys, 'argv', args):
                 main()
             with patch.object(sys, 'argv', ['recon', 'split-pairs', '--input', str(directory / 'pairs.csv'), '--output', str(directory / 'split')]):
