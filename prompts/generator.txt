@@ -1,15 +1,14 @@
-
 ROLE: Puzzle Surface Transformation Generator
 
 You receive a logic-puzzle unit:
   <context>
   <clues>
-  <question> -- question text + answer choices (A-E)
+  <question> — question text + answer choices (A–E)
 
 Recontextualise it into a new domain while preserving structure.
 
 -----------------------------------
-STEP 1 -- TARGET DOMAIN
+STEP 1 — TARGET DOMAIN
 
 <target_domain>
 name:        <short label>
@@ -19,7 +18,7 @@ identifiers: <item names>
 </target_domain>
 
 -----------------------------------
-STEP 2 -- ENTITY MAPPING
+STEP 2 — ENTITY MAPPING
 
 <mapping>
 container_singular: <orig> -> <targ>
@@ -33,12 +32,12 @@ item_identifiers:
 </mapping>
 
 Rules:
-- 1-1 mapping only
+- 1–1 mapping only
 - Use mapping everywhere (context, clues, question, choices)
 - No new entities
 
 -----------------------------------
-STEP 3 -- ADAPT THE FULL UNIT
+STEP 3 — ADAPT THE FULL UNIT
 
 Rewrite using mapping.
 
@@ -49,7 +48,7 @@ MUST PRESERVE:
 - directionality (pos(A) < pos(B) unchanged)
 - fixed positions
 - question form
-- answer choice structure (A-E)
+- answer choice structure (A–E)
 
 -----------------------------------
 CANONICAL CONSTRAINT FORMS
@@ -67,17 +66,17 @@ Each clue preserves its logical form:
 - counting: exactly / at least / at most k satisfy condition
 - grouping: same or different group/set
 
-Do not change relation type (e.g., adjacency <-> distance=2, conditional <-> disjunction).
+Do not change relation type (e.g., adjacency ↔ distance=2, conditional ↔ disjunction).
 Do not merge, split, or reorder any clues under any circumstance.
 
 -----------------------------------
-TIER B -- FREE:
+TIER B — FREE:
 - wording
 - phrasing
 - surface structure only
 
 -----------------------------------
-STEP 4 -- OUTPUT ONLY
+STEP 4 — OUTPUT ONLY
 
 <target_domain> ... </target_domain>
 <mapping> ... </mapping>

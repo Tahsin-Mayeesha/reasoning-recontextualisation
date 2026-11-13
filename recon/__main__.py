@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 from .data import read_table, prepare, validate, stratify, KEYS
 from .pipeline import run, write_json
+from .config import add_model_arguments, resolve_config
 
 
 def read_results(path):
@@ -41,7 +42,8 @@ def main():
         p = sub.add_parser(name)
         p.add_argument('--input', required=True)
         p.add_argument('--output', required=True, help='Private JSONL checkpoint')
-        p.add_argument('--config', required=True)
+        p.add_argument('--config', help='Optional JSON preset; use model flags for config-free Ollama runs')
+        add_model_arguments(p, name)
         p.add_argument('--resume', action='store_true')
         p.add_argument('--limit', type=int)
         if name == 'solve':
@@ -53,10 +55,11 @@ def main():
             if args.limit < 1:
                 parser.error('--limit must be positive')
             frame = frame.head(args.limit)
-        config = json.loads(Path(args.config).read_text(encoding='utf-8'))
-        if args.command == 'solve':
-            mode = args.mode
-            config['generator'] = {**config['generator'], **config.get('solve', {}).get(mode, {})}
+        config = json.loads(Path(args.config).read_text(encoding='utf-8')) if args.config else {}
+        try:
+            config = resolve_config(config, args)
+        except ValueError as exc:
+            parser.error(str(exc))
         records = run(frame, config, args.output, stage=args.command, mode=getattr(args, 'mode', 'zs'), resume=args.resume)
         errors = sum(r.get('execution_status') == 'error' or r.get('final_outcome') in ('generation_failed', 'judge_failed') for r in records)
         print(f'{len(records)} rows checkpointed; {errors} execution/judge failures')

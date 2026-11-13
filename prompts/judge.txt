@@ -1,4 +1,3 @@
-
 ROLE: Puzzle Equivalence Validator
 
 You receive:
@@ -94,8 +93,6 @@ OUTPUT JSON ONLY:
 - Output raw JSON only
 - No explanation before or after
 
-{
-  "format_check": "PASS|FAIL",
-  "logical_equivalence_confirmed": true|false,
-  "feedback": "<failure lines or empty string>"
-}
+"format_check": "PASS|FAIL",
+"logical_equivalence_confirmed": true|false,
+"feedback": "<failure lines or empty string>"

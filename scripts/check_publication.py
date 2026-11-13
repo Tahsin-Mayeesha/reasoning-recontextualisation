@@ -11,6 +11,9 @@ for path in ROOT.rglob('*'):
     if not path.is_file() or any(p in {'.git', '.venv', '__pycache__', '.ipynb_checkpoints'} for p in path.parts):
         continue
     relative = path.relative_to(ROOT)
+    # These root folders hold ignored local inputs and run outputs, not publication assets.
+    if relative.parts[0] in {'data', 'outputs', 'private', 'build', 'dist'}:
+        continue
     if path.suffix.lower() in FORBIDDEN:
         errors.append(f'Data/media artifact: {relative}')
     text = path.read_text(encoding='utf-8')

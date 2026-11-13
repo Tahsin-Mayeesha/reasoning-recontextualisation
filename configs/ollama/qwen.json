@@ -17,7 +17,6 @@
   },
   "max_iterations": 3,
   "judge_parse_retries": 3,
-  "prompt_prefix": "ollama",
   "solve": {
     "zs": {
       "max_tokens": 2048,

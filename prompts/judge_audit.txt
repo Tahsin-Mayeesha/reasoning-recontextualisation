@@ -37,7 +37,7 @@ Classify the failure:
   - "equivalence_issue"  : judge cited genuine logical differences
                            (wrong clue type, direction flipped, clue merged)
   - "mixed"              : both formatting and equivalence issues cited
-  - "n/a"                : judge passed, or judge did not reach a decision
+  - "inconclusive"       : judge did not reach a decision
 
 Set failure_nature to one of the four values above.
 
@@ -51,11 +51,9 @@ Report what logical_equivalence_confirmed value the judge produced.
 ---
 OUTPUT JSON ONLY. No markdown, no explanation, no ```json blocks.
 
-{
-  "puzzle_structure_valid": true|false,
-  "structure_issues": "<comma-separated list of missing elements or empty string>",
-  "judge_reached_decision": true|false,
-  "failure_nature": "formatting_only|equivalence_issue|mixed|n/a",
-  "judge_final_decision": true|false|null,
-  "audit_notes": "<one sentence summary of any notable issue, or empty string>"
-}
+"puzzle_structure_valid": true|false,
+"structure_issues": "<comma-separated list of missing elements or empty string>",
+"judge_reached_decision": true|false,
+"failure_nature": "formatting_only|equivalence_issue|mixed|inconclusive",
+"judge_final_decision": true|false|null,
+"audit_notes": "<one sentence summary of any notable issue, or empty string>"

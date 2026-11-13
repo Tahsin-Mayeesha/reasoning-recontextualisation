@@ -36,7 +36,7 @@ def run(frame, config, output, stage='adapt', mode='zs', resume=False, client_fa
         raise ValueError('judge_parse_retries must be positive')
     validate(frame, sample=stage in ('adapt', 'solve'))
     names = (['generator', 'judge'] if stage == 'adapt' else
-             [config.get('prompt_prefix', 'openai') + '_' + mode] if stage == 'solve' else
+             [{'zs': 'zero_shot', 'cot': 'cot'}[mode]] if stage == 'solve' else
              ['answer_audit' if stage == 'audit-answer' else 'judge_audit'])
     signature = {'stage': stage, 'mode': mode, 'config': config,
                  'input_sha256': hashlib.sha256(frame.to_json(orient='records').encode()).hexdigest(),

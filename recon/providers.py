@@ -19,6 +19,10 @@ class Client:
         self.provider = self.config['provider']
         self.model = self.config['model']
         self.sdk = None
+        if not isinstance(self.model, str) or not self.model.strip():
+            raise ValueError('A nonempty model tag is required')
+        if self.config.get('retries', 3) < 1:
+            raise ValueError('retries must be positive')
 
     def call(self, system, user):
         for attempt in range(self.config.get('retries', 3)):
@@ -35,8 +39,11 @@ class Client:
         messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': user}]
         if self.provider == 'ollama':
             # Native endpoint makes think a top-level parameter, not an options entry.
-            body = {'model': self.model, 'messages': messages, 'stream': False,
-                    'options': {'num_predict': limit, 'num_ctx': c.get('num_ctx', 16384)}}
+            options = dict(c.get('options', {}))
+            options.update(num_predict=limit, num_ctx=c.get('num_ctx', 16384))
+            body = {'model': self.model, 'messages': messages, 'stream': False, 'options': options}
+            if 'keep_alive' in c:
+                body['keep_alive'] = c['keep_alive']
             if c.get('temperature') is not None:
                 body['options']['temperature'] = c['temperature']
             if c.get('think') is not None:

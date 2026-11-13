@@ -59,7 +59,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(result['final_outcome'], 'not_equivalent')
 
     def test_resume(self):
-        config = {'generator': {'provider': 'ollama', 'model': 'test'}, 'prompt_prefix': 'ollama'}
+        config = {'generator': {'provider': 'ollama', 'model': 'test'}}
         with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as directory:
             path = Path(directory) / 'run.jsonl'
             fake = Fake(['B'])
@@ -99,6 +99,26 @@ class Tests(unittest.TestCase):
             self.assertEqual(old.iloc[0].Sample, ROW['Sample'])
             self.assertEqual(new.iloc[0].Sample, GEN)
             self.assertEqual(old.iloc[0].adaptation_id, new.iloc[0].adaptation_id)
+
+    def test_canonical_solver_prompts_across_providers(self):
+        from recon.pipeline import ROOT, prompt
+        self.assertEqual({p.stem for p in (ROOT / 'prompts').glob('*.txt')},
+                         {'zero_shot', 'cot', 'generator', 'judge', 'answer_audit', 'judge_audit'})
+        self.assertFalse((ROOT / 'prompts/archive').exists())
+        for path in (ROOT / 'configs').rglob('*.json'):
+            config = json.loads(path.read_text(encoding='utf-8'))
+            self.assertNotIn('prompt_prefix', config)
+            if 'solve' not in config:
+                continue
+            for mode, name in [('zs', 'zero_shot'), ('cot', 'cot')]:
+                with self.subTest(config=path.name, mode=mode):
+                    fake = Fake(['B'])
+                    with tempfile.TemporaryDirectory(dir=Path(__file__).parent) as directory:
+                        run(pd.DataFrame([ROW]), config, Path(directory) / 'run.jsonl',
+                            stage='solve', mode=mode, client_factory=lambda c: fake)
+                    self.assertEqual(fake.calls[0][0], prompt(name))
+        self.assertIn('formatting_only|equivalence_issue|mixed|inconclusive', prompt('judge_audit'))
+        self.assertNotIn('"n/a"', prompt('judge_audit'))
 
     def test_ollama_wire_format(self):
         class Response:

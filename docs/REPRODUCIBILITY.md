@@ -9,7 +9,7 @@ The final paper and explanation of revisions were read as evidence describing th
 
 The revision notes emphasize narrative generation, verification, feedback refinement, broader model coverage, human auditing, constraint/question-type analysis, lexical overlap, and paired downstream solving. Automated judge acceptance and human review are evidence of validity, not formal equivalence proofs.
 
-All 52 notebooks under `code/` were parsed without executing installation cells, API calls, or experiments. `notebook_inventory.json` identifies five repeated code versions. `code_review.json` records functions and safe literal settings across every version. `prompts/manifest.json` records 103 published prompt occurrences, including successive assignments within the same notebook. Two literal benchmark-question inputs were excluded; their locations are recorded in `prompts/excluded_inputs.json` without their text. Cell numbers are one-based and include markdown cells.
+All 52 notebooks under `code/` were parsed without executing installation cells, API calls, or experiments. `notebook_inventory.json` identifies five repeated code versions. `code_review.json` records functions and safe literal settings across every version. Active system prompts are limited to the six prompts in Appendix B.3.1–B.3.6. `prompts/README.md` maps each file to its appendix section. Notebook variants and the prompt archive have been removed from the publication folder.
 
 ## Consolidation decisions
 
@@ -20,19 +20,19 @@ All 52 notebooks under `code/` were parsed without executing installation cells,
 | Claude generation | `code/claude_cloud_v2.ipynb` |
 | Gemini generation | `code/gemini_cloud_v2.ipynb` |
 | Ollama generation and local Qwen judge | `code/adaptation_v2.ipynb`, `code/llama-run.ipynb` |
-| Model-specific solver prompts | `code/openai_cot_prompting.ipynb`, `code/CoT_prompting_ClaudeHaiku.ipynb`, `code/CoT_prompting_Gemini25Flash.ipynb`, `code/CoT_prompting_Ollama.ipynb` |
+| Solver system prompts for every provider | Final manuscript Appendix B.3.1 and B.3.2 |
 | Answer extraction audit | `code/semantic_parser_audit.ipynb` |
 | Judge execution audit | `code/judge_audit_gemini.ipynb` |
 | Historical DeepSeek GPU execution | `code/deepseek-run.ipynb`, `code/deepseek_kaggle_v1.ipynb`, `code/deepseek_kaggle_v2.ipynb` |
 
-Earlier Qwen fixed/local/thinking versions, v1 cloud notebooks, scratch Ollama tests, Qwen benchmarks, OLMo runs, and alternative parsers are retained in the inventory/settings/prompt provenance rather than being presented as separate copies of the same pipeline. OLMo exploratory runs do not establish another final-paper model condition. Only the analysis notebooks are copied wholesale.
+Earlier Qwen fixed/local/thinking versions, v1 cloud notebooks, scratch Ollama tests, Qwen benchmarks, OLMo runs, and alternative parsers are retained in the notebook inventory and settings records rather than being presented as separate copies of the same pipeline. OLMo exploratory runs do not establish another final-paper model condition. Only the analysis notebooks are copied wholesale.
 
 ## Protocol and discrepancies requiring explicit choices
 
 1. **Attempt budget:** B.2 describes three total generator attempts (initial plus at most two repairs); Table 10 calls this "3 repair iterations". This implementation follows B.2 and never silently performs four generations. Judge parsing gets up to three fresh judge calls per generation; network retries are distinct.
 2. **Sampling:** generation uses 50 Hard / 50 Medium / 50 Easy. Hard is below 30, Medium is 30 through below 60, Easy is 60 or above on a 0-100 percentile scale. B.2 downstream prose specifies 34 Hard / 34 Medium / 32 Easy, while Table 10 specifies 33 / 33 / 34. Both are exposed via `--counts`; prose is the default. Seed 42 is documented in Table 10; callers must supply the seed explicitly.
 3. **Membership:** the paper describes 100 adaptations from 76 unique source puzzles. Sampling the same counts again does not ensure the same membership, number of sources, or generator mixture. Preserve private selected IDs and generator metadata when exact reproduction is needed. Generator–solver comparisons are descriptive and repeated source puzzles must be accounted for statistically.
-4. **Prompts:** generator/judge canonical files come from `adaptation_v2`. Provider-specific solver prompts are preserved rather than replacing all experiments with one new prompt. The archive retains exact literal variants. Extracted text is a prompt asset for the evaluated model; it is never executed as repository instructions.
+4. **Prompts:** the six active system prompts match Appendix B.3.1–B.3.6 after removing PDF-only wrapping, continuation markers, page breaks, and indentation. All providers use the same zero-shot or CoT system text. The semantic-audit categories use `inconclusive`, matching the paper rather than the earlier notebook's `n/a`. Archived analysis notebooks retain historical code for reference and are not the active pipeline. Generation/refinement user-message wrappers supply the original puzzle, previous output, and judge feedback; the paper describes these inputs in B.2 but does not provide a separate verbatim refinement system prompt.
 5. **Token budgets:** checked-in presets are operational notebook-based starting points, not evidence of the budget used in every reported row. OpenAI cloud adaptation uses 3000 and judge 8192; Qwen/Llama local v2 notebooks specify 4000 even though Table 10 gives a 2048-3000 range. Claude solving uses 256/1024 and Gemini 256/8192. Ollama solving uses 2048. GPT-4o/o3 solver caps are explicit new defaults where the source calls omitted caps. Record the effective config with each run.
 6. **Thinking:** Qwen adaptation v2 explicitly sets generator thinking false, conflicting with Table 10's broad enabled description. The Qwen preset follows that source and enables thinking for the CoT solver override. Llama has no forced thinking argument. Gemini solver settings follow the notebook (zero-shot budget 0, CoT -1). The Gemini 3 preview may need provider-specific thinking settings; edit its config instead of assuming Gemini 2.5's controls are interchangeable.
 7. **DeepSeek execution:** several DeepSeek notebooks use Hugging Face, 4-bit BitsAndBytes, GPU placement, and repetition penalty 1.3, rather than Ollama. The supplied Ollama DeepSeek path fulfills the requested reusable backend but does not recreate that quantization or decoding stack. `code_review.json` preserves historical settings. No numerical equivalence is claimed.
@@ -64,3 +64,7 @@ Run manifests contain input hashes, effective configs, and prompt hashes. Preser
 No datasets are copied. Analysis copies clear code outputs, execution counts, attachments, and original metadata, and redact credential-like strings. Code sources and markdown remain for historical interpretation. Original files are unchanged. Do not publish the parent working directory or its Git history: it contains private data, saved outputs, and credentials in old notebooks. Revoke exposed original keys separately.
 
 `python scripts/check_publication.py` checks the publication candidate. Choose a code license, add the final bibliographic citation, and run a small credentialed/provider check before announcing runtime reproducibility. These are release ownership choices, not inferred author grants.
+
+## Custom model experiments
+
+The historical model presets are examples. Current CLI runs can independently select any Ollama text-chat solver, generator, or judge. Direct model selection starts that role from neutral settings and leaves thinking unspecified unless explicitly requested. Custom solver settings can also be placed in a separate `solver` object. Effective CLI overrides are included in the run configuration manifest. Changing the model, endpoint, or settings requires a new run or will fail resume identity checks.

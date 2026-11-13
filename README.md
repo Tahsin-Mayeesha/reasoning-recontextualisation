@@ -65,6 +65,74 @@ python -m recon prepare --input private/puzzles.xlsx --output data/questions.csv
 
 Attach gold labels by puzzle/question keys after preparation. The converter does not assume an answer-column layout or perform OCR.
 
+## Try a complete example
+
+This original example can be shared. It contains no benchmark question or model-generated dataset. Run commands from the repository root.
+
+```sh
+python examples/create_sample.py --output data/synthetic_puzzle.csv
+```
+
+Create the file once; if it already exists, use it or choose a new output filename. The script uses a CSV writer to quote the multiline `Sample` correctly. To create an Excel equivalent, use `--output data/synthetic_puzzle.xlsx`.
+
+### One complete input row
+
+| Column | Value |
+|---|---|
+| `Puzzle_Number` | `SYN001` |
+| `Question_Number` | `Q1` |
+| `Sample` | The complete block below, in a single cell |
+| `Answer` | `D` |
+| `Solved_Percentile` | `50`, illustrative metadata only; not a measured human score |
+
+```xml
+<context>
+Three delivery vans, Amber, Birch, and Cedar, occupy positions 1, 2, and 3 in a queue.
+Each van occupies exactly one position, and no position contains more than one van.
+</context>
+<clues>
+1. Amber is somewhere before Birch.
+2. Cedar is immediately after Amber.
+</clues>
+<question>
+Which of the following must be the order of the vans, from position 1 to position 3?
+(A) Amber, Birch, Cedar
+(B) Birch, Amber, Cedar
+(C) Cedar, Amber, Birch
+(D) Amber, Cedar, Birch
+(E) Birch, Cedar, Amber
+</question>
+```
+
+The unique valid order is Amber, Cedar, Birch. The gold answer is D. Gold labels and percentile metadata are stored outside `Sample` and are not passed to models.
+
+### Run the example with a live model
+
+These commands require Ollama to be running with `qwen3.5:9b` downloaded:
+
+```sh
+python -m recon solve --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --mode zs --output outputs/sample_solve.jsonl
+python -m recon summarize --input outputs/sample_solve.jsonl --output outputs/sample_solve_summary.json
+python -m recon adapt --config configs/ollama/qwen.json --input data/synthetic_puzzle.csv --output outputs/sample_adapt.jsonl
+python -m recon export --input outputs/sample_adapt.jsonl --output outputs/sample_adapt.csv
+```
+
+A successful solver should output D. Adaptation acceptance depends on what the live generator and judge produce. To use a cloud generator, replace the config with an API preset and set that provider's API key. The configured judge still requires Ollama.
+
+### Run the offline check
+
+Run the offline end-to-end check without a model server or API credentials:
+
+```sh
+python -m unittest discover -s tests -p test_sample_workflow.py -v
+```
+
+That test invokes the real CLI, data loader, official prompts, Ollama request builder, parsers, checkpointing, feedback refinement, paired-set construction, both solver modes, scoring, and CSV export. HTTP responses are simulated. It verifies plumbing and deterministic behavior, not model accuracy or a real judge's equivalence assessment.
+
+The offline sample check passes. Live inference was not validated in the development session because no API keys were configured and the local Ollama endpoint was unavailable.
+
+Output files stay in ignored local folders. Use fresh output names for a new run, or `--resume` with unchanged inputs/configuration.
+
 ## API models
 
 API generators use provider-specific SDKs. The supplied adaptation presets use a local Qwen judge, which requires a running Ollama server even when the generator is an API model.
@@ -80,16 +148,52 @@ Use `--mode cot` for explicit stepwise solver prompting. The o3 preset uses nati
 
 ## Local models with Ollama
 
-Ollama generators and judges call the native `/api/chat` endpoint. Each role has its own model, token limit, context size, temperature, and supported thinking controls.
+Use any chat-capable model tag available on your Ollama server. Model selection is independent for solving, adaptation generation, and judging. The Qwen, Llama, and DeepSeek configuration files remain sample presets; none is a required model.
+
+### Choose models directly
+
+No configuration file is needed. Replace the quoted model tags below with exact tags from `ollama list`:
+
+```sh
+python -m recon solve --model "YOUR_SOLVER:TAG" --input data/synthetic_puzzle.csv --mode zs --output outputs/custom_solve.jsonl
+python -m recon adapt --generator-model "YOUR_GENERATOR:TAG" --judge-model "YOUR_JUDGE:TAG" --input data/synthetic_puzzle.csv --output outputs/custom_adapt.jsonl
+```
+
+Use the same tag in both adaptation roles for a self-judge experiment, or different tags for an independent judge. Config-free adaptation requires an explicit judge model. The six canonical prompts stay unchanged across models.
+
+### Servers and generation controls
+
+Both roles default to `http://localhost:11434`. Override their server roots independently:
+
+```sh
+python -m recon adapt --generator-model "YOUR_GENERATOR:TAG" --base-url http://localhost:11434 --judge-model "YOUR_JUDGE:TAG" --judge-base-url http://localhost:11435 --max-tokens 4000 --judge-max-tokens 8192 --num-ctx 16384 --judge-num-ctx 16384 --input data/synthetic_puzzle.csv --output outputs/custom_servers.jsonl
+```
+
+Primary-role options are `--think`, `--max-tokens`, `--num-ctx`, `--temperature`, and `--timeout`. Adaptation also accepts their independent `--judge-...` equivalents. The same `--model` and primary controls are available for `audit-answer` and `audit-judge`.
+
+Thinking is omitted by default for direct model selection, allowing the model's own behavior. Use `--think auto` to clear a preset's thinking setting, `--think true` or `--think false` for compatible models, or the exact named level supported by that model. Use `--judge-think` separately for the judge. Do not assume every model supports the same thinking controls. See [Ollama's thinking documentation](https://docs.ollama.com/capabilities/thinking) for discovering supported values with `/api/show`.
+
+### Keep reusable configurations
+
+Copy [configs/ollama/custom.example.json](configs/ollama/custom.example.json), replace its model tags, and pass it with `--config`. The optional `solver` role selects a solver independently of the adaptation `generator`; existing presets reuse `generator` for solving. Each role can set its own `base_url`, `max_tokens`, `num_ctx`, `temperature`, `think`, and `timeout`. For additional native generation settings, supply an `options` object such as `{"seed": 42, "top_p": 0.9}`. An optional `keep_alive` setting is also forwarded to Ollama. Top-level token/context/temperature controls take precedence over their corresponding `options` entries.
+
+Existing example presets work as before:
 
 ```sh
 python -m recon adapt --config configs/ollama/qwen.json --input data/questions.csv --output outputs/qwen_adaptations.jsonl
 python -m recon adapt --config configs/ollama/llama.json --input data/questions.csv --output outputs/llama_adaptations.jsonl
-python -m recon adapt --config configs/ollama/deepseek.json --input data/questions.csv --output outputs/deepseek_adaptations.jsonl
 python -m recon solve --config configs/ollama/llama.json --input data/questions.csv --mode cot --output outputs/llama_original_cot.jsonl
 ```
 
-Install the configured DeepSeek tag or change it explicitly in a copied configuration. The Ollama route uses a different execution stack from Hugging Face / BitsAndBytes examples in the archived notebooks.
+You can override a preset's judge while retaining its generator:
+
+```sh
+python -m recon adapt --config configs/api/openai_o3.json --judge-model "YOUR_JUDGE:TAG" --input data/questions.csv --output outputs/o3_custom_judge.jsonl
+```
+
+Selecting a new model with `--model`, `--generator-model`, or `--judge-model` replaces that role's preset, avoiding inherited thinking controls from another model. Apply any desired role settings explicitly afterward. Overrides are recorded in the run manifest, so resume refuses a changed model or effective configuration.
+
+The selected model must support text chat, fit in the available hardware, and produce the required answer or judge format. Model-independent transport does not guarantee reasoning accuracy or reliable judging for every model. The DeepSeek Ollama sample uses a different execution stack from the archived Hugging Face / BitsAndBytes runs.
 
 ## Sampling and paired evaluation
 
@@ -131,7 +235,7 @@ Audits append separate fields and preserve primary decisions. Missing prediction
 
 - `recon/`: data preparation, provider transports, parsers, experiment stages, and CLI.
 - `configs/api/` and `configs/ollama/`: editable model and runtime presets.
-- `prompts/`: solver, generator, judge, and audit prompts, with an archive and source manifest.
+- `prompts/`: six canonical solver, generator, judge, and audit prompts. All providers share the same solver prompts; see [the prompt guide](prompts/README.md).
 - `analysis/notebooks/`: archived analysis notebooks with saved outputs cleared and credentials redacted.
 - `docs/notebook_inventory.json` and `docs/code_review.json`: source notebook inventory, duplicate relationships, and configuration records.
 - `docs/REPRODUCIBILITY.md`: implementation provenance, configuration differences, and reproduction limits.
